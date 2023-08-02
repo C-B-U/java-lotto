@@ -2,10 +2,10 @@ package lotto;
 
 import java.util.List;
 
-public class Lotto {
+public class LottoGenerator {
     private final List<Integer> numbers;
 
-    public Lotto(List<Integer> numbers) {
+    public LottoGenerator(List<Integer> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
