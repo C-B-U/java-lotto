@@ -1,13 +1,22 @@
 package lotto;
 
+import lotto.producer.repository.Lotto;
+import lotto.producer.repository.ProducerRepository;
+import lotto.producer.service.ProducerService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 class LottoTest {
+
+    ProducerRepository producerRepository = mock(ProducerRepository.class);
+
     @DisplayName("로또 번호의 개수가 6개가 넘어가면 예외가 발생한다.")
     @Test
     void createLottoByOverSize() {
@@ -24,4 +33,18 @@ class LottoTest {
     }
 
     // 아래에 추가 테스트 작성 가능
+    @DisplayName("로또 번호가 제대로 생성되어 출력되는지 확인한다.")
+    @Test
+    void saveLottoNumberInRepository(){
+        //given
+        given(producerRepository.createLottoNumber()).willReturn(List.of(1,2,3,4,5,6));
+        ProducerService producerService = new ProducerService();
+
+        //when
+        String resultLottoNumber = producerService.resultLottoNumber(List.of(1,2,3,4,5,6));
+
+        //then
+        assertThat(resultLottoNumber).isEqualTo("[1, 2, 3, 4, 5, 6]");
+
+    }
 }
