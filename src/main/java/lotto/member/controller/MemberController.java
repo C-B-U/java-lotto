@@ -17,7 +17,7 @@ public class MemberController {
         return memberService.getLottoAmount(Console.readLine());
     }
 
-    public List<Integer> inputWinNumber(){
+    public List<Integer> inputWinLottoNumber(){
         System.out.println("당첨 번호를 입력해 주세요");
         return memberService.getWinLottoNumber(Console.readLine());
     }
