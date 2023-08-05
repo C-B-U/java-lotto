@@ -21,6 +21,9 @@ public class LottoManagerService {
         }
         // 결과를 출력한다.
         System.out.println(lottoManagerRepository.getMatchResult());
+    }
 
+    public void getLottoRate(int lottoAmount) {
+        System.out.printf("총 수익률은 " + lottoManagerRepository.getLottoRate(lottoAmount) + "입니다.");
     }
 }
