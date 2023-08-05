@@ -28,7 +28,7 @@ public class MemberService {
 
     public List<Integer> getWinLottoNumber(String winNumber){
         for (Integer integer : convertWinLottoNumber(winNumber)) {
-            memberRepository.save(integer);
+            memberRepository.saveLottoNumber(integer);
         }
         return memberRepository.getWinLottoNumber();
     }

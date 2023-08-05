@@ -8,7 +8,7 @@ public class MemberRepository {
     private final List<Integer> winLottoNumber = new ArrayList<>();
     private int bonusNumber;
 
-    public void save(Integer number){
+    public void saveLottoNumber(Integer number){
         winLottoNumber.add(number);
     }
 
