@@ -88,4 +88,15 @@ class LottoStatisticsTest {
 
     }
 
+    @DisplayName("로또 수익률 계산을 확인한다.")
+    @Test
+    void calculateLottoRate(){
+        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(9,7,3,2,1,10), 45);
+
+        double lottoRate = lottoManagerRepository.getLottoRate(8000);
+
+        assertThat(lottoRate).isEqualTo(62.5);
+
+    }
+
 }
