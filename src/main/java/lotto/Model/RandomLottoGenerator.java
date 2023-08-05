@@ -1,12 +1,11 @@
 package lotto.Model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.List;
+import lotto.Lotto;
 
 public class RandomLottoGenerator {
 
-    private final List<Integer> numbers;
+    private final Lotto numbers;
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 45;
     private static final int LOTTO_SIZE = 6;
@@ -15,11 +14,11 @@ public class RandomLottoGenerator {
         this.numbers = generateRandomNumber();
     }
 
-    private List<Integer> generateRandomNumber() {
-        return Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER, LOTTO_SIZE);
+    private Lotto generateRandomNumber() {
+        return new Lotto(Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER, LOTTO_SIZE));
     }
 
-    public List<Integer> getRandomNumber() {
+    public Lotto getRandomNumber() {
         return numbers;
     }
 }
