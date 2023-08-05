@@ -21,9 +21,8 @@ public class MemberService {
     }
 
     private int convertLottoAmount(String lottoAmount){
-        int lottoAmountInt = Integer.parseInt(lottoAmount);
-        inputValidator.validateInputLottoAmount(lottoAmountInt);
-        return lottoAmountInt;
+        inputValidator.validateInputLottoAmount(lottoAmount);
+        return Integer.parseInt(lottoAmount);
     }
 
     public List<Integer> getWinLottoNumber(String winNumber){
@@ -49,9 +48,8 @@ public class MemberService {
     }
 
     private int convertBonusNumber(String bonusNumber){
-        int bonusNumberInt = Integer.parseInt(bonusNumber);
         List<Integer> winLottoNumber = memberRepository.getWinLottoNumber();
-        inputValidator.validateInputBonusNumber(bonusNumberInt, winLottoNumber);
-        return bonusNumberInt;
+        inputValidator.validateInputBonusNumber(bonusNumber, winLottoNumber);
+        return Integer.parseInt(bonusNumber);
     }
 }
