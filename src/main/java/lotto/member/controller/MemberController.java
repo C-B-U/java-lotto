@@ -17,12 +17,12 @@ public class MemberController {
         return memberService.getLottoAmount(Console.readLine());
     }
 
-    public List<Integer> inputWinNumber(String winNumber){
+    public List<Integer> inputWinNumber(){
         System.out.println("당첨 번호를 입력해 주세요");
         return memberService.getWinLottoNumber(Console.readLine());
     }
 
-    public int inputBonusNumber(String bonusNumber){
+    public int inputBonusNumber(){
         System.out.println("보너스 번호를 입력해 주세요.");
         return memberService.getBonusNumber(Console.readLine());
     }
