@@ -19,6 +19,8 @@ public class LottoManagerService {
             List<Integer> lottoNumbers = lotto.getNumbers();
             lottoManagerRepository.upMatchCount(lottoNumbers, winNumber, bonusNumber);
         }
+        // 결과를 출력한다.
+        System.out.println(lottoManagerRepository.getMatchResult());
 
     }
 }
