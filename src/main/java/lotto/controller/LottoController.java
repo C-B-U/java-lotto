@@ -19,7 +19,7 @@ public class LottoController {
     public void start() {
         outputView.guidePurchaseLotto();
         LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
-        WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber());
+        WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
     }
 }
