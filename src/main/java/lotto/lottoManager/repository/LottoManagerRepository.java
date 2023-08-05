@@ -20,11 +20,11 @@ public class LottoManagerRepository {
     }
 
     public String getMatchResult() {
-        return String.valueOf(LottoStatistics.THIRD) + statisticsCounter.get(LottoStatistics.THIRD) + "개\n" +
-                LottoStatistics.FOURTH + statisticsCounter.get(LottoStatistics.FOURTH) + "개\n" +
-                LottoStatistics.FIFTH + statisticsCounter.get(LottoStatistics.FIFTH) + "개\n" +
-                LottoStatistics.FIFTH_AND_BONUS + statisticsCounter.get(LottoStatistics.FIFTH_AND_BONUS) + "개\n" +
-                LottoStatistics.SIXTH + statisticsCounter.get(LottoStatistics.SIXTH) + "개\n";
+        return String.valueOf(LottoStatistics.THIRD) + statisticsCounter.getOrDefault(LottoStatistics.THIRD, 0) + "개\n" +
+                LottoStatistics.FOURTH + statisticsCounter.getOrDefault(LottoStatistics.FOURTH, 0) + "개\n" +
+                LottoStatistics.FIFTH + statisticsCounter.getOrDefault(LottoStatistics.FIFTH, 0) + "개\n" +
+                LottoStatistics.FIFTH_AND_BONUS + statisticsCounter.getOrDefault(LottoStatistics.FIFTH_AND_BONUS, 0) + "개\n" +
+                LottoStatistics.SIXTH + statisticsCounter.getOrDefault(LottoStatistics.SIXTH, 0) + "개\n";
     }
 
     private int getMatchCount(List<Integer> lottoNumbers, List<Integer> winNumber) {
