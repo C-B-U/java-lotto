@@ -20,10 +20,13 @@ public class LottoManagerService {
             lottoManagerRepository.upMatchCount(lottoNumbers, winNumber, bonusNumber);
         }
         // 결과를 출력한다.
-        System.out.println(lottoManagerRepository.getMatchResult());
+        System.out.println();
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        System.out.print(lottoManagerRepository.getMatchResult());
     }
 
     public void getLottoRate(int lottoAmount) {
-        System.out.print("총 수익률은 " + lottoManagerRepository.getLottoRate(lottoAmount) + "입니다.");
+        System.out.print("총 수익률은 " + lottoManagerRepository.getLottoRate(lottoAmount) + "%입니다.");
     }
 }
