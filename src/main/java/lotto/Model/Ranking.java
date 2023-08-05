@@ -28,4 +28,8 @@ public enum Ranking {
                 .findAny()
                 .orElse(NONE);
     }
+
+    public int getPrize() {
+        return prize;
+    }
 }

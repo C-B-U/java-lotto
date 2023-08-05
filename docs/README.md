@@ -21,7 +21,8 @@
 ### 로또 당첨 판별 (LottoResult)
 [x] 로또 당첨 여부 판별
 
-[ ] 수익률 계산
+### 수익률 계산 (YieldCalculator)
+[x] 수익률 계산
 
 
 ### 입력 (InputFactory)

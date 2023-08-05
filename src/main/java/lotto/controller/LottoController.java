@@ -23,5 +23,7 @@ public class LottoController {
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
         List<Ranking> rankings = lottoResult.calculateWinningRank();
+        YieldCalculator yieldCalculator = new YieldCalculator(rankings, lottoCounter.getLotteryTicket());
+        yieldCalculator.calculateYield();
     }
 }
