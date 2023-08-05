@@ -14,11 +14,13 @@ public class ProducerService {
     }
 
     public List<Lotto> getLottoNumbers(int lottoAmount){
+        System.out.println();
         System.out.println(lottoAmount + "개를 구매했습니다.");
         for (int i = 0; i < lottoAmount; i++){
             List<Integer> lottoNumber = producerRepository.createLottoNumber();
             System.out.println(resultLottoNumber(lottoNumber));
         }
+        System.out.println();
         return producerRepository.getLottos();
     }
 
