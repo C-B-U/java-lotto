@@ -1,10 +1,10 @@
 package lotto.controller;
 
-import lotto.Model.LottoCounter;
-import lotto.Model.PlayerLottoes;
-import lotto.Model.WinningLotto;
+import lotto.Model.*;
 import lotto.view.InputFactory;
 import lotto.view.OutputView;
+
+import java.util.List;
 
 public class LottoController {
 
@@ -21,5 +21,7 @@ public class LottoController {
         LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
         WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
+        LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
+        List<Ranking> rankings = lottoResult.calculateWinningRank();
     }
 }
