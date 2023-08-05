@@ -16,7 +16,7 @@ public class LottoManagerRepository {
         resultMathFourth(matchCount);
         resultMathFifth(matchCount);
         resultMathFifthAndBonus(matchCount, isContainBonusNumber);
-        resultMatchSIXTH(matchCount);
+        resultMatchSixth(matchCount);
     }
 
     public String getMatchResult() {
@@ -62,7 +62,7 @@ public class LottoManagerRepository {
         }
     }
 
-    private void resultMatchSIXTH(int matchCount){
+    private void resultMatchSixth(int matchCount){
         if(matchCount == LottoStatistics.SIXTH.getMatchCount()){
             statisticsCounter.put(LottoStatistics.SIXTH, statisticsCounter.getOrDefault(LottoStatistics.SIXTH, 0)+1);
         }
@@ -70,5 +70,14 @@ public class LottoManagerRepository {
 
     public Map<LottoStatistics, Integer> getStatisticsCounter() {
         return statisticsCounter;
+    }
+
+    public double getLottoRate(int lottoAmount) {
+        double lottoRevenue = 0;
+        for (LottoStatistics statistics : LottoStatistics.values()){
+            lottoRevenue += statistics.getPrice() * statisticsCounter.getOrDefault(statistics, 0);
+        }
+        return Math.round((lottoRevenue/lottoAmount) * 100);
+
     }
 }
