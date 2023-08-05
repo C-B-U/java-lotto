@@ -16,7 +16,6 @@ public class MemberService {
         this.inputValidator = new InputValidator();
     }
 
-
     public int getLottoAmount(String lottoAmount){
         return convertLottoAmount(lottoAmount);
     }
@@ -44,5 +43,10 @@ public class MemberService {
     }
 
 
-
+    private int convertBonusNumber(String bonusNumber){
+        int bonusNumberInt = Integer.parseInt(bonusNumber);
+        List<Integer> winLottoNumber = memberRepository.getWinLottoNumber();
+        inputValidator.validateInputBonusNumber(bonusNumberInt, winLottoNumber);
+        return bonusNumberInt;
+    }
 }
