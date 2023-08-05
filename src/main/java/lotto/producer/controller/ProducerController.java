@@ -13,7 +13,7 @@ public class ProducerController {
         this.producerService = new ProducerService();
     }
 
-    public List<Lotto> getLottoNumber(int lottoAmount){
+    public List<Lotto> getLottoNumbers(int lottoAmount){
         return producerService.getLottoNumbers(lottoAmount);
     }
 
