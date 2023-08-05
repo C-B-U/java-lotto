@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.Lotto;
 import lotto.Model.LottoCounter;
 import lotto.view.InputFactory;
 import lotto.view.OutputView;
@@ -18,5 +19,6 @@ public class LottoController {
         outputView.guidePurchaseLotto();
         int purchaseAmount = inputFactory.readPurchaseAmount();
         LottoCounter lottoCounter = new LottoCounter(purchaseAmount);
+        Lotto lotto = inputFactory.readWinningNumber();
     }
 }
