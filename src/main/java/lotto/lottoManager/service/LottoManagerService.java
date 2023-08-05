@@ -24,6 +24,6 @@ public class LottoManagerService {
     }
 
     public void getLottoRate(int lottoAmount) {
-        System.out.printf("총 수익률은 " + lottoManagerRepository.getLottoRate(lottoAmount) + "입니다.");
+        System.out.print("총 수익률은 " + lottoManagerRepository.getLottoRate(lottoAmount) + "입니다.");
     }
 }

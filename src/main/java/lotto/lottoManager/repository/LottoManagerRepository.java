@@ -77,7 +77,7 @@ public class LottoManagerRepository {
         for (LottoStatistics statistics : LottoStatistics.values()){
             lottoRevenue += statistics.getPrice() * statisticsCounter.getOrDefault(statistics, 0);
         }
-        return Math.round((lottoRevenue/lottoAmount) * 100);
-
+        double rate = (lottoRevenue / lottoAmount) * 100;
+        return Math.round(rate * 100.0) / 100.0;
     }
 }
