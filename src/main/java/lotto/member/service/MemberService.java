@@ -27,8 +27,12 @@ public class MemberService {
         return lottoAmountInt;
     }
 
-
-
+    public List<Integer> getWinLottoNumber(String winNumber){
+        for (Integer integer : convertWinLottoNumber(winNumber)) {
+            memberRepository.save(integer);
+        }
+        return memberRepository.getWinLottoNumber();
+    }
 
     private List<Integer> convertWinLottoNumber(String winNumber) {
         List<Integer> winNumberIntList = winNumber.chars()
