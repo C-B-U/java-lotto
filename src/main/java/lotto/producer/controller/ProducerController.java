@@ -1,6 +1,9 @@
 package lotto.producer.controller;
 
+import lotto.producer.repository.Lotto;
 import lotto.producer.service.ProducerService;
+
+import java.util.List;
 
 public class ProducerController {
 
@@ -10,8 +13,8 @@ public class ProducerController {
         this.producerService = new ProducerService();
     }
 
-    public void getLottoNumber(int lottoAmount){
-        producerService.getLottoNumbers(lottoAmount);
+    public List<Lotto> getLottoNumber(int lottoAmount){
+        return producerService.getLottoNumbers(lottoAmount);
     }
 
 

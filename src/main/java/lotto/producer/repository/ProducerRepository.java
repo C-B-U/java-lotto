@@ -14,4 +14,7 @@ public class ProducerRepository {
         return lottoNumbers;
     }
 
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
 }
