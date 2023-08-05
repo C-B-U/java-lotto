@@ -1,18 +1,20 @@
 package lotto.lottoManager.service;
 
+import java.text.NumberFormat;
+
 public enum LottoStatistics {
 
-    THIRD(3, "(5,000원)", false),
-    FOURTH(4, "(50,000원)", false),
-    FIFTH(5, "(1,500,000원)", false),
-    FIFTH_AND_BONUS(5, "(30,000,000원)", true),
-    SIXTH(6, "(2,000,000,000원)", false);
+    THIRD(3, 5_000, false),
+    FOURTH(4, 50_000, false),
+    FIFTH(5, 1_500_000, false),
+    FIFTH_AND_BONUS(5, 30_000_000, true),
+    SIXTH(6, 2_000_000_000, false);
 
     private final int matchCount;
-    private final String price;
+    private final int price;
     private final boolean isMatchBonus;
 
-    LottoStatistics(int matchCount, String price, boolean isMatchBonus){
+    LottoStatistics(int matchCount, int price, boolean isMatchBonus){
         this.matchCount = matchCount;
         this.price = price;
         this.isMatchBonus = isMatchBonus;
@@ -25,7 +27,10 @@ public enum LottoStatistics {
         if(isMatchBonus){
             sb.append(", 보너스 볼 일치 ");
         }
-        sb.append(price).append(" - ");
+        sb.append("(")
+          .append(NumberFormat.getInstance().format(price))
+          .append("원)")
+          .append(" - ");
         return sb.toString();
     }
 
@@ -33,7 +38,7 @@ public enum LottoStatistics {
         return matchCount;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
