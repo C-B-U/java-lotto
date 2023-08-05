@@ -67,4 +67,19 @@ class LottoTest {
         assertThat(winLottoNumber).isEqualTo(memberRepository.getWinLottoNumber());
 
     }
+
+    @DisplayName("보너스 번호가 타입이 변경된 후 저장소에 저장되어 반환되는지 확인한다.")
+    @Test
+    void saveBonusNumberInRepository(){
+        //given
+        MemberService memberService = new MemberService();
+        MemberRepository memberRepository = new MemberRepository();
+        int bonusNumber = memberService.getBonusNumber("7");
+
+        //when
+        memberRepository.saveBonusNumber(7);
+
+        //then
+        assertThat(bonusNumber).isEqualTo(memberRepository.getBonusNumber());
+    }
 }
