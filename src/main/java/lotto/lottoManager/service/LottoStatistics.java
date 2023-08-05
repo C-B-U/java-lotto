@@ -23,11 +23,11 @@ public enum LottoStatistics {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(matchCount).append("개 일치 ");
+        sb.append(matchCount).append("개 일치");
         if(isMatchBonus){
             sb.append(", 보너스 볼 일치 ");
         }
-        sb.append("(")
+        sb.append(" (")
           .append(NumberFormat.getInstance().format(price))
           .append("원)")
           .append(" - ");
