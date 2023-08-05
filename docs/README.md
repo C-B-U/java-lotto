@@ -6,9 +6,9 @@
 [ ] 게임 진행
 
 ### 로또 개수 계산 (LottoCounter)
-[ ] 금액에 맞는 로또 개수 계산
+[x] 금액에 맞는 로또 개수 계산
 
-### 로또 구매 (LottoGenerator)
+### 로또 번호 생성기 (LottoGenerator)
 [ ] 로또 번호 랜덤 생성
 
 ### 로또 당첨 판별 (LottoResult)
