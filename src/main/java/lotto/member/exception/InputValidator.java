@@ -18,4 +18,18 @@ public class InputValidator {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 6자리 수 입니다.");
         }
     }
+
+    public void validateInputBonusNumber(int bonusNumberInt, List<Integer> winLottoNumber) {
+        if (isNotNumberInRange(bonusNumberInt) && isNumberContainInList(bonusNumberInt, winLottoNumber)){
+            throw new IllegalArgumentException("[ERROR] 보너스 번호는 1~45 사이의 당첨 번호에 포함되지 않는 숫자입니다.");
+        }
+    }
+
+    private boolean isNotNumberInRange(int number){
+        return number < 1 || number > 45;
+    }
+
+    private boolean isNumberContainInList(int bonusNumberInt, List<Integer> winLottoNumber){
+        return winLottoNumber.contains(bonusNumberInt);
+    }
 }
