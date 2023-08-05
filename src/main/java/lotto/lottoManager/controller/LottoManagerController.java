@@ -13,7 +13,7 @@ public class LottoManagerController {
     private final ProducerController producerController;
     private final LottoManagerService lottoManagerService;
 
-    LottoManagerController(){
+    public LottoManagerController(){
         this.memberController = new MemberController();
         this.producerController = new ProducerController();
         this.lottoManagerService = new LottoManagerService();
@@ -29,6 +29,6 @@ public class LottoManagerController {
     }
 
     private int lottoCount(int lottoAmount){
-        return lottoAmount % 1000;
+        return lottoAmount / 1000;
     }
 }
