@@ -42,6 +42,11 @@ public class MemberService {
         return winNumberIntList;
     }
 
+    public int getBonusNumber(String bonusNumber) {
+        int bonusNumberInt = convertBonusNumber(bonusNumber);
+        memberRepository.saveBonusNumber(bonusNumberInt);
+        return memberRepository.getBonusNumber();
+    }
 
     private int convertBonusNumber(String bonusNumber){
         int bonusNumberInt = Integer.parseInt(bonusNumber);
