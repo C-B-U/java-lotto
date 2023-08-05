@@ -19,6 +19,14 @@ public class LottoManagerRepository {
         resultMatchSIXTH(matchCount);
     }
 
+    public String getMatchResult() {
+        return String.valueOf(LottoStatistics.THIRD) + statisticsCounter.get(LottoStatistics.THIRD) + "개\n" +
+                LottoStatistics.FOURTH + statisticsCounter.get(LottoStatistics.FOURTH) + "개\n" +
+                LottoStatistics.FIFTH + statisticsCounter.get(LottoStatistics.FIFTH) + "개\n" +
+                LottoStatistics.FIFTH_AND_BONUS + statisticsCounter.get(LottoStatistics.FIFTH_AND_BONUS) + "개\n" +
+                LottoStatistics.SIXTH + statisticsCounter.get(LottoStatistics.SIXTH) + "개\n";
+    }
+
     private int getMatchCount(List<Integer> lottoNumbers, List<Integer> winNumber) {
         return (int) lottoNumbers.stream()
                 .filter(winNumber::contains)
