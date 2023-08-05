@@ -6,6 +6,7 @@ import java.util.List;
 public class MemberRepository {
 
     private final List<Integer> winLottoNumber = new ArrayList<>();
+    private int bonusNumber;
 
     public void save(Integer number){
         winLottoNumber.add(number);
@@ -13,5 +14,13 @@ public class MemberRepository {
 
     public List<Integer> getWinLottoNumber() {
         return winLottoNumber;
+    }
+
+    public void saveBonusNumber(int bonusNumber) {
+        this.bonusNumber = bonusNumber;
+    }
+
+    public int getBonusNumber(){
+        return bonusNumber;
     }
 }
