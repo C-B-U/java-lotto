@@ -1,8 +1,20 @@
 package lotto.controller;
 
+import lotto.view.InputFactory;
+import lotto.view.OutputView;
+
 public class LottoController {
 
+    private final OutputView outputView;
+    private final InputFactory inputFactory;
+
+    public LottoController(OutputView outputView, InputFactory inputFactory) {
+        this.outputView = outputView;
+        this.inputFactory = inputFactory;
+    }
+
     public void start() {
-        System.out.println("구입 금액을 입력해주세요.");
+        outputView.guidePurchaseLotto();
+        int purchaseAmount = inputFactory.readPurchaseAmount();
     }
 }
