@@ -13,7 +13,7 @@ class InputValidTest {
     @Test
     @DisplayName("로또 구입 금액이 1,000원 단위가 아니면 예외가 발생한다.")
     void inputLottoAmountIsNotThousand(){
-        assertThatThrownBy(() -> memberService.convertLottoAmount("14500"))
+        assertThatThrownBy(() -> memberService.getLottoAmount("14500"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
