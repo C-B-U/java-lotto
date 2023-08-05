@@ -25,7 +25,7 @@ public enum LottoStatistics {
         StringBuilder sb = new StringBuilder();
         sb.append(matchCount).append("개 일치");
         if(isMatchBonus){
-            sb.append(", 보너스 볼 일치 ");
+            sb.append(", 보너스 볼 일치");
         }
         sb.append(" (")
           .append(NumberFormat.getInstance().format(price))
