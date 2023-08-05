@@ -3,6 +3,9 @@ package lotto.member.service;
 import lotto.member.exception.InputValidator;
 import lotto.member.repository.MemberRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -13,11 +16,29 @@ public class MemberService {
         this.inputValidator = new InputValidator();
     }
 
-    public int convertLottoAmount(String lottoAmount){
+
+    public int getLottoAmount(String lottoAmount){
+        return convertLottoAmount(lottoAmount);
+    }
+
+    private int convertLottoAmount(String lottoAmount){
         int lottoAmountInt = Integer.parseInt(lottoAmount);
         inputValidator.validateInputLottoAmount(lottoAmountInt);
         return lottoAmountInt;
     }
+
+
+
+
+    private List<Integer> convertWinLottoNumber(String winNumber) {
+        List<Integer> winNumberIntList = winNumber.chars()
+                .filter(Character::isDigit)
+                .mapToObj(c -> Character.getNumericValue((char)c))
+                .collect(Collectors.toList());
+        inputValidator.validateInputLottoNumber(winNumberIntList);
+        return winNumberIntList;
+    }
+
 
 
 }
