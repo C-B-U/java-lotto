@@ -9,8 +9,8 @@ import java.util.Map;
 public class LottoManagerRepository {
     private final Map<LottoStatistics, Integer> statisticsCounter = new EnumMap<>(LottoStatistics.class);
 
-    public void upMatchCount(List<Integer> lottoNumbers, List<Integer> winNumber, int bonusNumber) {
-        int matchCount = getMatchCount(lottoNumbers, winNumber);
+    public void upMatchCount(List<Integer> lottoNumber, List<Integer> winNumber, int bonusNumber) {
+        int matchCount = getMatchCount(lottoNumber, winNumber);
         boolean isContainBonusNumber = isContainBonusNumber(winNumber, bonusNumber);
         resultMathThird(matchCount);
         resultMathFourth(matchCount);
@@ -32,32 +32,35 @@ public class LottoManagerRepository {
 
     private void resultMathThird(int matchCount) {
         if (matchCount == LottoStatistics.THIRD.getMatchCount()){
-            statisticsCounter.put(LottoStatistics.THIRD, statisticsCounter.get(LottoStatistics.THIRD)+1);
+            statisticsCounter.put(LottoStatistics.THIRD, statisticsCounter.getOrDefault(LottoStatistics.THIRD, 0)+1);
         }
     }
 
     private void resultMathFourth(int matchCount){
         if(matchCount == LottoStatistics.FOURTH.getMatchCount()){
-            statisticsCounter.put(LottoStatistics.FOURTH, statisticsCounter.get(LottoStatistics.FOURTH)+1);
+            statisticsCounter.put(LottoStatistics.FOURTH, statisticsCounter.getOrDefault(LottoStatistics.FOURTH, 0)+1);
         }
     }
 
     private void resultMathFifth(int matchCount){
         if(matchCount == LottoStatistics.FIFTH.getMatchCount()){
-            statisticsCounter.put(LottoStatistics.FIFTH, statisticsCounter.get(LottoStatistics.FIFTH)+1);
+            statisticsCounter.put(LottoStatistics.FIFTH, statisticsCounter.getOrDefault(LottoStatistics.FIFTH, 0)+1);
         }
     }
 
     private void resultMathFifthAndBonus(int matchCount, boolean bonusNumber){
         if(matchCount == LottoStatistics.FIFTH_AND_BONUS.getMatchCount() && bonusNumber == LottoStatistics.FIFTH_AND_BONUS.isMatchBonus()){
-            statisticsCounter.put(LottoStatistics.FIFTH_AND_BONUS, statisticsCounter.get(LottoStatistics.FIFTH_AND_BONUS)+1);
+            statisticsCounter.put(LottoStatistics.FIFTH_AND_BONUS, statisticsCounter.getOrDefault(LottoStatistics.FIFTH_AND_BONUS, 0)+1);
         }
     }
 
     private void resultMatchSIXTH(int matchCount){
         if(matchCount == LottoStatistics.SIXTH.getMatchCount()){
-            statisticsCounter.put(LottoStatistics.SIXTH, statisticsCounter.get(LottoStatistics.SIXTH)+1);
+            statisticsCounter.put(LottoStatistics.SIXTH, statisticsCounter.getOrDefault(LottoStatistics.SIXTH, 0)+1);
         }
     }
 
+    public Map<LottoStatistics, Integer> getStatisticsCounter() {
+        return statisticsCounter;
+    }
 }
