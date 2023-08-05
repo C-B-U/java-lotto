@@ -2,6 +2,7 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.Lotto;
+import lotto.Model.BonusNumber;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,5 +22,11 @@ public class InputFactory {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
         return new Lotto(winningNumber);
+    }
+
+    public BonusNumber readBonusNumber() {
+        System.out.println(OutputMessage.BONUS_NUMBER);
+        String userInput = Console.readLine();
+        return new BonusNumber(Integer.parseInt(userInput));
     }
 }
