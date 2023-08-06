@@ -10,6 +10,12 @@ import java.util.stream.Stream;
 
 public class InputFactory {
 
+    private final InputValidator inputValidator;
+
+    public InputFactory() {
+        this.inputValidator = new InputValidator();
+    }
+
     public int readPurchaseAmount() {
         String userInput = Console.readLine();
         return Integer.parseInt(userInput);
@@ -27,6 +33,7 @@ public class InputFactory {
     public BonusNumber readBonusNumber() {
         System.out.println(OutputMessage.BONUS_NUMBER);
         String userInput = Console.readLine();
+        inputValidator.validateBonusNumber(userInput);
         return new BonusNumber(Integer.parseInt(userInput));
     }
 }
