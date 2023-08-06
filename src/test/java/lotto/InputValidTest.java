@@ -1,8 +1,11 @@
 package lotto;
 
+import lotto.member.repository.MemberRepository;
 import lotto.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -42,6 +45,20 @@ class InputValidTest {
     @DisplayName("보너스 번호가 로또 번호 범위에 없으면 예외가 발생한다.")
     void inputBonusNumberNotInRange(){
         assertThatThrownBy(() -> memberService.getBonusNumber("100"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("보너스 번호가 당첨 번호에 포함되어 있으면 예외가 발생한다.")
+    void inputBonusNumberInWinLottoNumber(){
+        MemberRepository memberRepository = new MemberRepository();
+        List<Integer> winLottoNumber = memberService.getWinLottoNumber("1,2,3,4,5,6");
+
+        for (Integer num : winLottoNumber){
+            memberRepository.saveWinLottoNumber(num);
+        }
+
+        assertThatThrownBy(() -> memberService.getBonusNumber("3"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
