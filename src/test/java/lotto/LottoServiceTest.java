@@ -27,6 +27,7 @@ class LottoServiceTest {
     @DisplayName("로또 티켓 발행이 수행되는가")
     void publishLotto() {
         //given
+        lottoService.savePublishNumber(1000);
 
         //when
         final List<Lotto> lottoList = lottoService.publishLotto();

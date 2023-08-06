@@ -18,6 +18,6 @@ public enum ErrorMessage {
 
     @Override
     public String toString() {
-        return ERROR_PREFIX.message + message;
+        return ERROR_PREFIX.message + this.message;
     }
 }

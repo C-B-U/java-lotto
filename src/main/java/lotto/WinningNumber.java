@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,7 @@ public class WinningNumber {
 
         final List<Result> resultList = lottoList.stream()
                 .map(Lotto::getNumbers)
+                .map(ArrayList::new)
                 .peek(lotto -> lotto.retainAll(winningNumbers))
                 .map(this::getResult)
                 .collect(Collectors.toList());
