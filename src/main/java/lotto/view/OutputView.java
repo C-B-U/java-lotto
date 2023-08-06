@@ -1,5 +1,7 @@
 package lotto.view;
 
+import lotto.Lotto;
+import lotto.Model.PlayerLottoes;
 import lotto.Model.Ranking;
 
 import java.util.Arrays;
@@ -28,5 +30,14 @@ public class OutputView {
 
     public void printPurchaseCount(int lottoTicketsNumber) {
         System.out.printf(OutputMessage.BUY_NUMBER.toString(), lottoTicketsNumber);
+    }
+
+    public void printPlayerLottoes(PlayerLottoes playerLottoes) {
+        playerLottoes.getLottoes()
+                .forEach(this::printLottoNumber);
+    }
+
+    private void printLottoNumber(Lotto lotto) {
+        System.out.println(lotto.getNumbers());
     }
 }

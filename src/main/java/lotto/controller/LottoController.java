@@ -20,6 +20,7 @@ public class LottoController {
         outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
         WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
+        outputView.printPlayerLottoes(playerLottoes);
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
         lottoResult.calculateWinningRank();
         lottoResult.calculateYield();
