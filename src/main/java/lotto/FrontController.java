@@ -8,8 +8,8 @@ public class FrontController {
     }
 
     public void playLotto() {
-        final Integer publishNum = lottoController.getPublishNum();
-        lottoController.publishLotto(publishNum);
+        lottoController.getPublishNum();
+        lottoController.publishLotto();
         lottoController.getWinningNumber();
         lottoController.checkWinningNumber();
     }

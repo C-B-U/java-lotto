@@ -17,7 +17,7 @@ class LottoServiceTest {
         //given
 
         //when
-        final Integer publishNum = lottoService.getPublishNum(1000);
+        final Integer publishNum = lottoService.savePublishNum(1000);
 
         //then
         assertThat(publishNum).isEqualTo(1);
@@ -29,7 +29,7 @@ class LottoServiceTest {
         //given
 
         //when
-        final List<Lotto> lottoList = lottoService.publishLotto(1);
+        final List<Lotto> lottoList = lottoService.publishLotto();
 
         //then
         assertThat(lottoList).hasSize(1);

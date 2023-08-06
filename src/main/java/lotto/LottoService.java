@@ -22,16 +22,19 @@ public class LottoService {
                 LottoNumberRange.NUMBER_NUM.toValue());
     }
 
-    public Integer getPublishNum(final Integer buyAmount) {
-        return divideByMoneyUnit(buyAmount);
+    public Integer savePublishNum(final Integer buyAmount) {
+        final Integer publishNumber = divideByMoneyUnit(buyAmount);
+        lottoRepository.savePublishNumber(publishNumber);
+        return publishNumber;
     }
 
     private Integer divideByMoneyUnit(final Integer dividend) {
         return dividend / MONEY_UNIT;
     }
 
-    public List<Lotto> publishLotto(final Integer publishNum) {
-        final List<Lotto> lottoList = createLottoList(publishNum);
+    public List<Lotto> publishLotto() {
+        final Integer publishNumber = lottoRepository.findPublishNumber();
+        final List<Lotto> lottoList = createLottoList(publishNumber);
         lottoRepository.saveAllLotto(lottoList);
         return lottoList;
     }

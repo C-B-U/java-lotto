@@ -13,18 +13,17 @@ public class LottoController {
         this.inputManager = inputManager;
     }
 
-    public Integer getPublishNum() {
+    public void getPublishNum() {
         outputManager.printStartMessage();
 
         final Integer buyAmount = inputManager.buyAmountInput();
-        final Integer publishNum = lottoService.getPublishNum(buyAmount);
+        final Integer publishNum = lottoService.savePublishNum(buyAmount);
 
         outputManager.printPublishNum(publishNum);
-        return publishNum;
     }
 
-    public void publishLotto(final Integer publishNum) {
-        final List<Lotto> lottoList = lottoService.publishLotto(publishNum);
+    public void publishLotto() {
+        final List<Lotto> lottoList = lottoService.publishLotto();
         outputManager.printLottoList(lottoList);
     }
 

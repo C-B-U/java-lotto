@@ -31,7 +31,7 @@
 
 ## LottoService - 로또 서비스
 - saveLotto() 랜덤한 숫자 생성을 통한 Lotto 생성 및 저장
-- getPublishNum() 로또 발행량 계산
+- savePublishNum() 로또 발행량 계산 및 저장
 - publishLotto() 로또 티켓 발행
 - saveWinningNumber() 당첨 번호 저장
 - checkWinningNumber() 당점 정보 비교 및 결과 계산
@@ -41,6 +41,8 @@
 - saveWinningNumber() WinningNumber 객체 저장
 - findAllLotto() 로또 전체 조회
 - findWinningNumber() 당첨 번호 조회
+- savePublishNumber() 발행량 저장
+- findPublishNumber() 발행량 조회
 
 ## InputManager - 입력 받기
 - buyAmountInput() 구매 금액 입력
