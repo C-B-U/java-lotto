@@ -17,14 +17,14 @@ class LottoStatisticsTest {
     @Test
     void matchLottoNumberCountThree(){
         //given
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(9,7,3,2,1,10), 45);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,6), List.of(9,7,3,2,1,10), 45);
         Map<LottoStatistics, Integer> resultStatistics = lottoManagerRepository.getStatisticsCounter();
 
         //when
-        int mathThreeCount = resultStatistics.get(LottoStatistics.THIRD);
+        int matchThirdCount = resultStatistics.get(LottoStatistics.THIRD);
 
         //then
-        assertThat(mathThreeCount).isEqualTo(1);
+        assertThat(matchThirdCount).isEqualTo(1);
 
     }
 
@@ -32,14 +32,14 @@ class LottoStatisticsTest {
     @Test
     void matchLottoNumberCountFour(){
         //given
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(6,7,3,2,1,10), 45);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,6), List.of(6,7,3,2,1,10), 45);
         Map<LottoStatistics, Integer> resultStatistics = lottoManagerRepository.getStatisticsCounter();
 
         //when
-        int mathThreeCount = resultStatistics.get(LottoStatistics.FOURTH);
+        int matchFourthCount = resultStatistics.get(LottoStatistics.FOURTH);
 
         //then
-        assertThat(mathThreeCount).isEqualTo(1);
+        assertThat(matchFourthCount).isEqualTo(1);
 
     }
 
@@ -47,14 +47,14 @@ class LottoStatisticsTest {
     @Test
     void matchLottoNumberCountFive(){
         //given
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(1,2,3,4,5,7), 45);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,6), List.of(1,2,3,4,5,7), 6);
         Map<LottoStatistics, Integer> resultStatistics = lottoManagerRepository.getStatisticsCounter();
 
         //when
-        int mathThreeCount = resultStatistics.get(LottoStatistics.FIFTH);
+        int matchFifthCount = resultStatistics.get(LottoStatistics.FIFTH);
 
         //then
-        assertThat(mathThreeCount).isEqualTo(1);
+        assertThat(matchFifthCount).isEqualTo(1);
 
     }
 
@@ -62,14 +62,14 @@ class LottoStatisticsTest {
     @Test
     void matchLottoNumberCountFiveAndBonusNumber(){
         //given
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,7), List.of(1,2,3,4,5,6), 6);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,7), List.of(1,2,3,4,5,6), 6);
         Map<LottoStatistics, Integer> resultStatistics = lottoManagerRepository.getStatisticsCounter();
 
         //when
-        int mathThreeCount = resultStatistics.get(LottoStatistics.FIFTH_AND_BONUS);
+        int matchFifthAndBonusCount = resultStatistics.get(LottoStatistics.FIFTH_AND_BONUS);
 
         //then
-        assertThat(mathThreeCount).isEqualTo(1);
+        assertThat(matchFifthAndBonusCount).isEqualTo(1);
 
     }
 
@@ -77,23 +77,23 @@ class LottoStatisticsTest {
     @Test
     void matchLottoNumberCountSix(){
         //given
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(1,2,3,4,5,6), 45);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,6), List.of(1,2,3,4,5,6), 45);
         Map<LottoStatistics, Integer> resultStatistics = lottoManagerRepository.getStatisticsCounter();
 
         //when
-        int mathThreeCount = resultStatistics.get(LottoStatistics.SIXTH);
+        int matchSixthCount = resultStatistics.get(LottoStatistics.SIXTH);
 
         //then
-        assertThat(mathThreeCount).isEqualTo(1);
+        assertThat(matchSixthCount).isEqualTo(1);
 
     }
 
     @DisplayName("로또 수익률 계산을 확인한다.")
     @Test
     void calculateLottoRate(){
-        lottoManagerRepository.upMatchCount(List.of(1,2,3,4,5,6), List.of(9,7,3,2,1,10), 45);
+        lottoManagerRepository.upStatisticsMatchCount(List.of(1,2,3,4,5,6), List.of(9,7,3,2,1,10), 45);
 
-        double lottoRate = lottoManagerRepository.getLottoRate(8000);
+        double lottoRate =lottoManagerRepository.calculateLottoRate(8000);
 
         assertThat(lottoRate).isEqualTo(62.5);
 
