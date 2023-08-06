@@ -75,6 +75,11 @@
 - getRewardMoney() 개수에 따른 RewardMoney 조회
 - getMatchNum() RewardMoney에 따른 개수 조회
 
+## OutputFormatter - 출력 String 포매팅
+- formatResultString() 결과 string 포맷
+- formatEarningRateString() 수익률 string 포맷
+- formatPublishNum() 발행 개수 string 포맷
+
 ## ComponentFactory - 컴포넌트들의 생성
 
 # Enum 목록

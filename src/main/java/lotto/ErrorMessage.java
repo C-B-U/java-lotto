@@ -8,7 +8,7 @@ public enum ErrorMessage {
     NOT_VALID_ELEMENTS_NUM("리스트의 원소 개수는 %d개여야 합니다."),
     NOT_UNIQUE_ELEMENTS("리스트에 중복 원소가 존재합니다."),
     CANNOT_FIND_RESULT("결과를 찾을 수 없습니다."),
-    NOT_VALID_LOTTO_NUMBER_ERROR("로또 번호의 범위는 최소 1, 최대 45입니다.");
+    NOT_VALID_LOTTO_NUMBER_ERROR("로또 번호는 1부터 45 사이의 숫자여야 합니다.");
 
     private final String message;
 

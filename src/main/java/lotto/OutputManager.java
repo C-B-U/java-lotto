@@ -1,13 +1,12 @@
 package lotto;
 
-import java.text.NumberFormat;
 import java.util.List;
 
 public class OutputManager {
-    private final NumberFormat numberFormat;
+    private final OutputFormatter outputFormatter;
 
-    public OutputManager() {
-        this.numberFormat = NumberFormat.getNumberInstance();
+    public OutputManager(final OutputFormatter outputFormatter) {
+        this.outputFormatter = outputFormatter;
     }
 
     public void printStartMessage() {
@@ -15,7 +14,7 @@ public class OutputManager {
     }
 
     public void printPublishNum(final Integer publishNum) {
-        System.out.println(String.format(LottoMessage.PUBLISH_NUM.toString(), publishNum));
+        System.out.println(outputFormatter.formatPublishNum(publishNum));
     }
 
     public void printLottoList(final List<Lotto> lottoList) {
@@ -35,28 +34,14 @@ public class OutputManager {
     }
 
     public void printResult(final ResultMap resultMap) {
-        resultMap.getResultMap().forEach(((result, numOfResult) ->{
-                    if (!result.equals(RewardMoney.NONE)) {
-                        printResultByMoney(result, numOfResult);
+        resultMap.getResultMap().forEach(((rewardMoney, numOfResult) ->{
+                    if (!rewardMoney.equals(RewardMoney.NONE)) {
+                        System.out.println(outputFormatter.formatResultString(rewardMoney, numOfResult));
                     }
         }));
     }
 
-    private void printResultByMoney(final RewardMoney rewardMoney, final Integer numOfResult) {
-        RewardMoneyMap rewardMoneyMap = RewardMoneyMap.getInstance();
-
-        if (rewardMoney.equals(RewardMoney.MATCH_WITH_BONUS)) {
-            System.out.println(String.format(
-                    LottoMessage.BONUS_MATCH.toString(),
-                    rewardMoneyMap.getMatchNum(rewardMoney), numberFormat.format(rewardMoney.toValue()), numOfResult));
-            return;
-        }
-        System.out.println(String.format(
-                LottoMessage.NUM_OF_MATCH.toString(),
-                rewardMoneyMap.getMatchNum(rewardMoney), numberFormat.format(rewardMoney.toValue()), numOfResult));
-    }
-
     public void printEarningRate(final Double earningRate) {
-        System.out.println(String.format(LottoMessage.EARNING_RATE.toString(), earningRate));
+        System.out.println(outputFormatter.formatEarningRateString(earningRate));
     }
 }

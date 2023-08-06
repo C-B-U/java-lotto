@@ -19,7 +19,11 @@ public class ComponentFactory {
     }
 
     private OutputManager outputManager() {
-        return new OutputManager();
+        return new OutputManager(outputFormatter());
+    }
+
+    private OutputFormatter outputFormatter() {
+        return new OutputFormatter();
     }
 
     private InputManager inputManager() {

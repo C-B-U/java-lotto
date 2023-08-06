@@ -7,7 +7,7 @@ import java.util.Map;
 public class RewardMoneyMap {
     private static final Integer DEFAULT_INDEX = 0;
     private static final Integer BONUS_INDEX = 1;
-    private Map<Integer, List<RewardMoney>> moneyMap = new HashMap<>();
+    private final Map<Integer, List<RewardMoney>> moneyMap = new HashMap<>();
     private static RewardMoneyMap rewardMoneyMap;
 
     public static RewardMoneyMap getInstance() {
