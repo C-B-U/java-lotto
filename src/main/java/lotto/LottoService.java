@@ -7,51 +7,47 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LottoService {
+    private static final Integer MONEY_UNIT = 1000;
+    private static final Integer ZERO = 0;
     private final LottoRepository lottoRepository;
 
     public LottoService(final LottoRepository lottoRepository) {
         this.lottoRepository = lottoRepository;
     }
 
-    public void saveLotto() {
-        final Lotto lotto = new Lotto(createRandomNumbers());
-        lottoRepository.saveLotto(lotto);
-    }
-
     private List<Integer> createRandomNumbers() {
         return Randoms.pickUniqueNumbersInRange(
-                Number.MIN_RANGE.toValue(),
-                Number.MAX_RANGE.toValue(),
-                Number.NUMBER_NUM.toValue());
+                LottoNumberRange.MIN_RANGE.toValue(),
+                LottoNumberRange.MAX_RANGE.toValue(),
+                LottoNumberRange.NUMBER_NUM.toValue());
     }
 
     public Integer getPublishNum(final Integer buyAmount) {
-        return divideByThousand(buyAmount);
+        return divideByMoneyUnit(buyAmount);
     }
 
-    private Integer divideByThousand(final Integer dividend) {
-        return dividend / Number.THOUSAND.toValue();
+    private Integer divideByMoneyUnit(final Integer dividend) {
+        return dividend / MONEY_UNIT;
     }
 
-    public List<LottoTicket> publishLottoTickets(final Integer publishNum) {
-        final List<LottoTicket> lottoTickets = createLottoTickets(publishNum);
-        lottoRepository.saveLottoTicket(lottoTickets);
-        return lottoTickets;
+    public List<Lotto> publishLotto(final Integer publishNum) {
+        final List<Lotto> lottoList = createLottoList(publishNum);
+        lottoRepository.saveAllLotto(lottoList);
+        return lottoList;
     }
 
-    private List<LottoTicket> createLottoTickets(final Integer publishNum) {
-        return IntStream.range(Number.ZERO.toValue(), publishNum)
+    private List<Lotto> createLottoList(final Integer publishNum) {
+        return IntStream.range(ZERO, publishNum)
                 .mapToObj(i -> createRandomNumbers())
-                .map(LottoTicket::new)
+                .map(Lotto::new)
                 .collect(Collectors.toList());
     }
 
-    public WinningNumber saveWinningNumber(
+    public void saveWinningNumber(
             final List<Integer> winningNumberInput,
             final Integer bonusNumberInput) {
 
         final WinningNumber winningNumber = new WinningNumber(winningNumberInput, bonusNumberInput);
         lottoRepository.saveWinningNumber(winningNumber);
-        return winningNumber;
     }
 }

@@ -23,11 +23,14 @@ public class Lotto {
     }
 
     private void validateSize(final List<Integer> numbers) {
-        if (numbers.size() != Number.NUMBER_NUM.toValue()) {
+        if (numbers.size() != LottoNumberRange.NUMBER_NUM.toValue()) {
             throw new IllegalArgumentException(
-                    String.format(ErrorMessage.NOT_VALID_ELEMENTS_NUM.toString(), Number.NUMBER_NUM.toValue()));
+                    String.format(ErrorMessage.NOT_VALID_ELEMENTS_NUM.toString(), LottoNumberRange.NUMBER_NUM.toValue()));
         }
     }
 
-    // TODO: 추가 기능 구현
+    @Override
+    public String toString() {
+        return this.numbers.toString();
+    }
 }

@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 public class InputValidator {
     private static final String NUMERIC_MATCHER = "-?\\d+";
     private static final String LIST_WITH_COMMA_MATCHER = "\\d+,\\d+,\\d+,\\d+,\\d+,\\d+";
+    private static final Integer MONEY_UNIT = 1000;
+    private static final Integer NONE = 0;
 
     public void validateIsNumeric(final String buyAmountInput) {
         if (!buyAmountInput.matches(NUMERIC_MATCHER)) {
@@ -13,14 +15,14 @@ public class InputValidator {
     }
 
     public void validateMultiplyOfThousand(final Integer buyAmountInput) {
-        if (buyAmountInput % Number.THOUSAND.toValue() != Number.ZERO.toValue()) {
-            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_MULTIPLY_ERROR.toString(), Number.THOUSAND));
+        if (buyAmountInput % MONEY_UNIT != NONE) {
+            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_MULTIPLY_ERROR.toString(), MONEY_UNIT));
         }
     }
 
     public void validateIsListWithComma(final String input) {
         if (!Pattern.matches(LIST_WITH_COMMA_MATCHER, input)) {
-            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_LIST_WITH_COMMA_ERROR.toString(), Number.NUMBER_NUM));
+            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_LIST_WITH_COMMA_ERROR.toString(), LottoNumberRange.NUMBER_NUM));
         }
     }
 }

@@ -25,9 +25,9 @@ public class WinningNumber {
     }
 
     private void validateSize(final List<Integer> numbers) {
-        if (numbers.size() != Number.NUMBER_NUM.toValue()) {
+        if (numbers.size() != LottoNumberRange.NUMBER_NUM.toValue()) {
             throw new IllegalArgumentException(
-                    String.format(ErrorMessage.NOT_VALID_ELEMENTS_NUM.toString(), Number.NUMBER_NUM.toValue()));
+                    String.format(ErrorMessage.NOT_VALID_ELEMENTS_NUM.toString(), LottoNumberRange.NUMBER_NUM.toValue()));
         }
     }
 }

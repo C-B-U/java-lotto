@@ -13,30 +13,32 @@ public class LottoController {
         this.inputManager = inputManager;
     }
 
-    public void saveLotto() {
-        lottoService.saveLotto();
-    }
-
     public Integer getPublishNum() {
         outputManager.printStartMessage();
+
         final Integer buyAmount = inputManager.buyAmountInput();
         final Integer publishNum = lottoService.getPublishNum(buyAmount);
+
         outputManager.printPublishNum(publishNum);
         return publishNum;
     }
 
-    public void publishLottoTickets(final Integer publishNum) {
-        final List<LottoTicket> lottoTickets = lottoService.publishLottoTickets(publishNum);
-        outputManager.printLottoTickets(lottoTickets);
+    public void publishLotto(final Integer publishNum) {
+        final List<Lotto> lottoList = lottoService.publishLotto(publishNum);
+        outputManager.printLottoList(lottoList);
     }
 
-    public WinningNumber getWinningNumber() {
+    public void getWinningNumber() {
         outputManager.printCreateWinningNumber();
         final List<Integer> winningNumberInput = inputManager.winningNumberInput();
 
         outputManager.printCreateBonusNumber();
         final Integer bonusNumberInput = inputManager.bonusNumberInput();
 
-        return lottoService.saveWinningNumber(winningNumberInput, bonusNumberInput);
+        lottoService.saveWinningNumber(winningNumberInput, bonusNumberInput);
+    }
+
+    public void checkWinningNumber() {
+        outputManager.printWinningStatistics();
     }
 }

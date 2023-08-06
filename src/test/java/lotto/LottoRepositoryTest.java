@@ -15,19 +15,7 @@ class LottoRepositoryTest {
         //given
 
         //when
-        lottoRepository.saveLotto(new Lotto(List.of(1, 2, 3, 4, 5, 6)));
-
-        //then
-
-    }
-
-    @Test
-    @DisplayName("LottoTicket 저장 기능이 수행되는가")
-    void saveLottoTicket() {
-        //given
-
-        //when
-        lottoRepository.saveLottoTicket(List.of(new LottoTicket(List.of(1, 2, 3, 4, 5, 6))));
+        lottoRepository.saveAllLotto(List.of(new Lotto(List.of(1, 2, 3, 4, 5, 6))));
 
         //then
 

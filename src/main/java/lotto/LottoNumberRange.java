@@ -1,16 +1,12 @@
 package lotto;
 
-public enum Number {
-    ZERO(0),
-
-    THOUSAND(1000),
+public enum LottoNumberRange {
     MIN_RANGE(1),
     MAX_RANGE(45),
     NUMBER_NUM(6);
-
     private final int value;
 
-    Number(int value) {
+    LottoNumberRange(int value) {
         this.value = value;
     }
 

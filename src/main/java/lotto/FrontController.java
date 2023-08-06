@@ -8,9 +8,9 @@ public class FrontController {
     }
 
     public void playLotto() {
-        lottoController.saveLotto();
         final Integer publishNum = lottoController.getPublishNum();
-        lottoController.publishLottoTickets(publishNum);
-        final WinningNumber winningNumber = lottoController.getWinningNumber();
+        lottoController.publishLotto(publishNum);
+        lottoController.getWinningNumber();
+        lottoController.checkWinningNumber();
     }
 }

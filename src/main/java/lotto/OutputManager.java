@@ -12,8 +12,8 @@ public class OutputManager {
         System.out.println(String.format(LottoMessage.PUBLISH_NUM_MESSAGE.toString(), publishNum));
     }
 
-    public void printLottoTickets(final List<LottoTicket> lottoTickets) {
-        lottoTickets.forEach(System.out::println);
+    public void printLottoList(final List<Lotto> lottoList) {
+        lottoList.forEach(System.out::println);
     }
 
     public void printCreateWinningNumber() {
@@ -22,5 +22,9 @@ public class OutputManager {
 
     public void printCreateBonusNumber() {
         System.out.println(LottoMessage.CREATE_BONUS_NUMBER_MESSAGE);
+    }
+
+    public void printWinningStatistics() {
+        System.out.println(LottoMessage.WINNING_STATISTICS);
     }
 }

@@ -11,19 +11,6 @@ import static org.assertj.core.api.Assertions.*;
 class LottoServiceTest {
     private LottoService lottoService = new LottoService(new LottoRepository());
 
-
-    @Test
-    @DisplayName("로또 저장 로직이 수행되는가")
-    void saveLotto() {
-        //given
-
-        //when
-        lottoService.saveLotto();
-
-        //then
-
-    }
-
     @Test
     @DisplayName("발행 번호 조회가 수행되는가")
     void getPublishNum() {
@@ -38,14 +25,14 @@ class LottoServiceTest {
 
     @Test
     @DisplayName("로또 티켓 발행이 수행되는가")
-    void publishLottoTickets() {
+    void publishLotto() {
         //given
 
         //when
-        final List<LottoTicket> lottoTickets = lottoService.publishLottoTickets(1);
+        final List<Lotto> lottoList = lottoService.publishLotto(1);
 
         //then
-        assertThat(lottoTickets).hasSize(1);
+        assertThat(lottoList).hasSize(1);
     }
 
     @Test
@@ -54,7 +41,7 @@ class LottoServiceTest {
         //given
 
         //when
-        final WinningNumber winningNumber = lottoService.saveWinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
+        lottoService.saveWinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
 
         //then
 
