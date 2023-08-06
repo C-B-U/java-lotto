@@ -34,6 +34,15 @@ public class LottoManagerRepository {
         }
     }
 
+    public double calculateLottoRate(int lottoPrice) {
+        double lottoRevenue = 0;
+        for (LottoStatistics statistics : LottoStatistics.values()){
+            lottoRevenue += statistics.getPrice() * statisticsCounter.getOrDefault(statistics, 0);
+        }
+        double rate = (lottoRevenue / lottoPrice) * 100;
+        return Math.round(rate * 100.0) / 100.0;
+    }
+
     public Map<LottoStatistics, Integer> getStatisticsCounter() {
         return statisticsCounter;
     }

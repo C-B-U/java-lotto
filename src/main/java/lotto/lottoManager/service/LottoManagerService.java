@@ -20,8 +20,6 @@ public class LottoManagerService {
             lottoManagerRepository.upStatisticsMatchCount(lottoNumbers, winNumber, bonusNumber);
         }
         System.out.println(getMatchResult());
-
-
     }
 
     public String getMatchResult() {
@@ -36,23 +34,13 @@ public class LottoManagerService {
                     .append("개\n");
         }
         return stringBuilder.toString();
-
     }
 
-    public void getLottoRate(int lottoAmount) {
+    public void getLottoRate(int lottoPrice) {
         String printLottoRate = "총 수익률은 " +
-                calculateLottoRate(lottoAmount) +
+                lottoManagerRepository.calculateLottoRate(lottoPrice) +
                 "%입니다.";
         System.out.println(printLottoRate);
     }
 
-    public double calculateLottoRate(int lottoAmount) {
-        Map<LottoStatistics, Integer> statisticsCounter = lottoManagerRepository.getStatisticsCounter();
-        double lottoRevenue = 0;
-        for (LottoStatistics statistics : LottoStatistics.values()){
-            lottoRevenue += statistics.getPrice() * statisticsCounter.getOrDefault(statistics, 0);
-        }
-        double rate = (lottoRevenue / lottoAmount) * 100;
-        return Math.round(rate * 100.0) / 100.0;
-    }
 }
