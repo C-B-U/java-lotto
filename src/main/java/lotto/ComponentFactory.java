@@ -2,7 +2,11 @@ package lotto;
 
 public class ComponentFactory {
 
-    public LottoController lottoController() {
+    public FrontController frontController() {
+        return new FrontController(lottoController());
+    }
+
+    private LottoController lottoController() {
         return new LottoController(lottoService(), outputManager(), inputManager());
     }
 

@@ -11,11 +11,15 @@ public class LottoController {
         this.inputManager = inputManager;
     }
 
-    public void startLotto() {
+    public void saveLotto() {
         lottoService.saveLotto();
+    }
+
+    public Integer getPublishNum() {
         outputManager.printStartMessage();
         final Integer buyAmount = inputManager.buyAmountInput();
         final Integer publishNum = lottoService.getPublishNum(buyAmount);
         outputManager.printPublishNum(publishNum);
+        return publishNum;
     }
 }

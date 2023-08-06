@@ -16,8 +16,12 @@
 # 구현할 클래스 목록
 ## LottoTicket - 발행한 로또 티켓
 
+## FrontController - 프론트 컨트롤러
+- playLotto() 로또 플레이
+
 ## LottoController - 로또 컨트롤러
-- startLotto() 로또 시작
+- saveLotto() 로또 저장
+- getPublishNum() 로또 발행량 계산
 
 ## LottoService - 로또 서비스
 - saveLotto() 랜덤한 숫자 생성을 통한 Lotto 생성 및 저장
