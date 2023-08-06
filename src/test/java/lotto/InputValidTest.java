@@ -31,4 +31,11 @@ class InputValidTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("보너스 번호가 숫자가 아니면 예외가 발생한다.")
+    void inputBonusNumberIsNotNumber(){
+        assertThatThrownBy(() -> memberService.getBonusNumber("q"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
