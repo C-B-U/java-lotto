@@ -7,7 +7,7 @@ import java.util.List;
 public class LottoService {
     private final LottoRepository lottoRepository;
 
-    public LottoService(LottoRepository lottoRepository) {
+    public LottoService(final LottoRepository lottoRepository) {
         this.lottoRepository = lottoRepository;
     }
 

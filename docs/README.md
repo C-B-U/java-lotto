@@ -25,6 +25,7 @@
 - saveLotto() Lotto 객체 저장
 
 ## InputManager - 입력 받기
+- buyAmountInput() 구매 금액 입력
 
 ## InputValidator - 입력 검증
 
