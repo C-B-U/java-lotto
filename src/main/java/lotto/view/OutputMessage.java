@@ -7,7 +7,7 @@ public enum OutputMessage {
     BONUS_NUMBER("보너스 번호를 입력해 주세요."),
     RESULT_MESSAGE("당첨 통계"),
     LINE("---"),
-    BUY_NUMBER("개 구매하였습니다.");
+    BUY_NUMBER("%d개를 구매했습니다.\n");
 
     private final String message;
 

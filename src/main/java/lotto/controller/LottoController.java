@@ -17,11 +17,13 @@ public class LottoController {
     public void start() {
         outputView.guidePurchaseLotto();
         LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
+        outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
         WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
         lottoResult.calculateWinningRank();
         lottoResult.calculateYield();
         outputView.guideLottoResult(lottoResult.getRankingsResult());
+
     }
 }

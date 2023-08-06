@@ -25,4 +25,8 @@ public class OutputView {
     private void printRankingMessage(Ranking ranking, Map<Ranking, Integer> rankingResult) {
         System.out.println(ranking.getMessage(rankingResult.getOrDefault(ranking, DEFAULT)));
     }
+
+    public void printPurchaseCount(int lottoTicketsNumber) {
+        System.out.printf(OutputMessage.BUY_NUMBER.toString(), lottoTicketsNumber);
+    }
 }
