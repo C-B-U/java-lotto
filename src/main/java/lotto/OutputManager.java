@@ -19,4 +19,8 @@ public class OutputManager {
     public void printCreateWinningNumber() {
         System.out.println(LottoMessage.CREATE_WINNING_NUMBER_MESSAGE);
     }
+
+    public void printCreateBonusNumber() {
+        System.out.println(LottoMessage.CREATE_BONUS_NUMBER_MESSAGE);
+    }
 }

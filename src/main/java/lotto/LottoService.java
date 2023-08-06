@@ -39,4 +39,10 @@ public class LottoService {
         lottoRepository.saveLottoTicket(lottoTickets);
         return lottoTickets;
     }
+
+    public WinningNumber saveWinningNumber(final List<Integer> winningNumberInput, final Integer bonusNumberInput) {
+        final WinningNumber winningNumber = new WinningNumber(winningNumberInput, bonusNumberInput);
+        lottoRepository.saveWinningNumber(winningNumber);
+        return winningNumber;
+    }
 }

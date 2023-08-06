@@ -34,4 +34,12 @@ public class InputManager {
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
     }
+
+    public Integer bonusNumberInput() {
+        final String input = Console.readLine();
+        inputValidator.validateIsNumeric(input);
+
+        final Integer inputNumber = Integer.valueOf(input);
+        return inputNumber;
+    }
 }

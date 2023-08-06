@@ -30,8 +30,13 @@ public class LottoController {
         outputManager.printLottoTickets(lottoTickets);
     }
 
-    public void getWinLotteryDetails() {
+    public WinningNumber getWinningNumber() {
         outputManager.printCreateWinningNumber();
-        inputManager.winningNumberInput();
+        final List<Integer> winningNumberInput = inputManager.winningNumberInput();
+
+        outputManager.printCreateBonusNumber();
+        final Integer bonusNumberInput = inputManager.bonusNumberInput();
+
+        return lottoService.saveWinningNumber(winningNumberInput, bonusNumberInput);
     }
 }
