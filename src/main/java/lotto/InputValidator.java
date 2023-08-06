@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class InputValidator {
     private static final String NUMERIC_MATCHER = "-?\\d+";
-    private static final String LIST_WITH_COMMA_MATCHER = "\\d{1,},\\d{1,},\\d{1,},\\d{1,},\\d{1,},\\d{1,}";
+    private static final String LIST_WITH_COMMA_MATCHER = "\\d+,\\d+,\\d+,\\d+,\\d+,\\d+";
 
     public void validateIsNumeric(final String buyAmountInput) {
         if (!buyAmountInput.matches(NUMERIC_MATCHER)) {

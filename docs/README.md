@@ -46,6 +46,7 @@
 ## InputValidator - 입력 검증
 - validateIsNumeric() 입력값 숫자인지 검증
 - validateMultiplyOfThousand() 1000의 배수인지 검증
+- validateIsListWithComma() 콤마로 구분된 숫자들의 나열인지 검증
 
 ## OutputManager - 출력하기
 - printStartMessage() 로또 시작 메시지 출력
