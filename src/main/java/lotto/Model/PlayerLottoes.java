@@ -25,4 +25,7 @@ public class PlayerLottoes {
     public List<Lotto> getLottoes() {
         return lottoes;
     }
+    public int size() {
+        return lottoes.size();
+    }
 }

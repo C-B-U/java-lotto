@@ -4,8 +4,6 @@ import lotto.Model.*;
 import lotto.view.InputFactory;
 import lotto.view.OutputView;
 
-import java.util.List;
-
 public class LottoController {
 
     private final OutputView outputView;
@@ -22,8 +20,7 @@ public class LottoController {
         WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
-        List<Ranking> rankings = lottoResult.calculateWinningRank();
-        YieldCalculator yieldCalculator = new YieldCalculator(rankings, lottoCounter.getLotteryTicket());
-        yieldCalculator.calculateYield();
+        lottoResult.calculateWinningRank();
+        System.out.println(lottoResult.calculateYield());
     }
 }
