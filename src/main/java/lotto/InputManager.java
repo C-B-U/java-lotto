@@ -25,6 +25,7 @@ public class InputManager {
 
     public List<Integer> winningNumberInput() {
         final String input = Console.readLine();
+        inputValidator.validateIsListWithComma(input);
         final List<Integer> winningNumber = convertToList(input);
         return winningNumber;
     }
