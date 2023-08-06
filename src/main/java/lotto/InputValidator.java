@@ -10,7 +10,7 @@ public class InputValidator {
     }
 
     public void validateMultiplyOfThousand(final Integer buyAmountInput) {
-        if (buyAmountInput % 1000 != 0) {
+        if (buyAmountInput % Number.THOUSAND.toValue() != Number.ZERO.toValue()) {
             throw new IllegalArgumentException(ErrorMessage.NOT_MULTIPLY_OF_THOUSAND_ERROR.toString());
         }
     }

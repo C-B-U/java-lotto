@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.List;
+
 public class OutputManager {
 
     public void printStartMessage() {

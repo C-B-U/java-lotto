@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.List;
+
 public class LottoController {
     private final LottoService lottoService;
     private final OutputManager outputManager;
@@ -21,5 +23,9 @@ public class LottoController {
         final Integer publishNum = lottoService.getPublishNum(buyAmount);
         outputManager.printPublishNum(publishNum);
         return publishNum;
+    }
+
+    public void publishLottoTickets(final Integer publishNum) {
+        final List<LottoTicket> lottoTickets = lottoService.publishLottoTickets(publishNum);
     }
 }

@@ -22,13 +22,16 @@
 ## LottoController - 로또 컨트롤러
 - saveLotto() 로또 저장
 - getPublishNum() 로또 발행량 계산
+- publishLottoTickets() 로또 티켓 발행
 
 ## LottoService - 로또 서비스
 - saveLotto() 랜덤한 숫자 생성을 통한 Lotto 생성 및 저장
 - getPublishNum() 로또 발행량 계산
+- publishLottoTickets() 로또 티켓 발행
 
 ## LottoRepository - 로또 레포지토리
 - saveLotto() Lotto 객체 저장
+- saveLottoTicket() LottoTicket 객체 저장
 
 ## InputManager - 입력 받기
 - buyAmountInput() 구매 금액 입력
