@@ -25,6 +25,7 @@ public class InputFactory {
     public Lotto readWinningNumber() {
         System.out.println(OutputMessage.WINNING_NUMBER);
         String userInput = Console.readLine();
+        inputValidator.validateWinningNumbers(userInput);
         List<Integer> winningNumber = Stream.of(userInput.split(","))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());

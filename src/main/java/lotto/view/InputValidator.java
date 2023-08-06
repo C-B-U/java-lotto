@@ -16,6 +16,10 @@ public class InputValidator {
         isThousandUnits(amount);
     }
 
+    public void validateWinningNumbers(String winningNumbers) {
+        isContainComma(winningNumbers);
+    }
+
     private void isInteger(String number) {
         try {
             Integer.parseInt(number);
@@ -37,6 +41,13 @@ public class InputValidator {
         int amount = Integer.parseInt(userInput);
         if((amount % Thousand) != 0) {
             ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_AMOUNT;
+            throw new IllegalArgumentException(exceptionMessage.toString());
+        }
+    }
+
+    private void isContainComma(String userInput) {
+        if (!userInput.contains(",")) {
+            ExceptionMessage exceptionMessage = ExceptionMessage.NOT_CONTAIN_COMMA;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }
     }
