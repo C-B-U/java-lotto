@@ -1,7 +1,5 @@
 package lotto.Model;
 
-import lotto.Lotto;
-
 public class WinningLotto {
 
     private final Lotto lotto;

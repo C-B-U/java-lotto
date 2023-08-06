@@ -1,7 +1,5 @@
 package lotto.Model;
 
-import lotto.Lotto;
-
 import java.util.HashMap;
 import java.util.Map;
 
