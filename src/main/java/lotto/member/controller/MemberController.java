@@ -12,9 +12,9 @@ public class MemberController {
         this.memberService = new MemberService();
     }
 
-    public int inputLottoAmount(){
+    public int inputLottoPrice(){
         System.out.println("구입 금액을 입력해 주세요");
-        return memberService.getLottoAmount(Console.readLine());
+        return memberService.getLottoPrice(Console.readLine());
     }
 
     public List<Integer> inputWinLottoNumber(){

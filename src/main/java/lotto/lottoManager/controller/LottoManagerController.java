@@ -20,12 +20,12 @@ public class LottoManagerController {
     }
 
     public void startLotto(){
-       int lottoAmount =  memberController.inputLottoAmount();
-       List<Lotto> lottos = producerController.getLottoNumbers(lottoCount(lottoAmount));
+       int lottoPrice =  memberController.inputLottoPrice();
+       List<Lotto> lottos = producerController.getLottoNumbers(lottoCount(lottoPrice));
        List<Integer> winNumber = memberController.inputWinLottoNumber();
        int bonusNumber = memberController.inputBonusNumber();
        lottoManagerService.getStatistics(lottos, winNumber,bonusNumber);
-       lottoManagerService.getLottoRate(lottoAmount);
+       lottoManagerService.getLottoRate(lottoPrice);
     }
 
     private int lottoCount(int lottoAmount){

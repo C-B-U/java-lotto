@@ -16,13 +16,13 @@ public class MemberService {
         this.inputValidator = new InputValidator();
     }
 
-    public int getLottoAmount(String lottoAmount){
-        return convertLottoAmount(lottoAmount);
+    public int getLottoPrice(String lottoPrice){
+        return convertLottoPrice(lottoPrice);
     }
 
-    private int convertLottoAmount(String lottoAmount){
-        inputValidator.validateInputLottoAmount(lottoAmount);
-        return Integer.parseInt(lottoAmount);
+    private int convertLottoPrice(String lottoPrice){
+        inputValidator.validateInputLottoPrice(lottoPrice);
+        return Integer.parseInt(lottoPrice);
     }
 
     public List<Integer> getWinLottoNumber(String winNumber){
