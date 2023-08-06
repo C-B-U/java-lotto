@@ -35,6 +35,13 @@ class InputValidTest {
     }
 
     @Test
+    @DisplayName("로또 당첨 번호가 로또 숫자 범위안에 없으면 예외가 발생한다.")
+    void inputWinLottoNumberNotInRange(){
+        assertThatThrownBy(() -> memberService.getWinLottoNumber("1,2,100,3,4,5"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("보너스 번호가 숫자가 아니면 예외가 발생한다.")
     void inputBonusNumberIsNotNumber(){
         assertThatThrownBy(() -> memberService.getBonusNumber("q"))
