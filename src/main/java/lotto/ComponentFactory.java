@@ -3,7 +3,7 @@ package lotto;
 public class ComponentFactory {
 
     public LottoController lottoController() {
-        return new LottoController(lottoService(), inputManager());
+        return new LottoController(lottoService(), outputManager(), inputManager());
     }
 
     private LottoService lottoService() {
@@ -14,7 +14,15 @@ public class ComponentFactory {
         return new LottoRepository();
     }
 
+    private OutputManager outputManager() {
+        return new OutputManager();
+    }
+
     private InputManager inputManager() {
-        return new InputManager();
+        return new InputManager(inputValidator());
+    }
+
+    private InputValidator inputValidator() {
+        return new InputValidator();
     }
 }
