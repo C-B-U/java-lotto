@@ -39,7 +39,7 @@ public class LottoController {
     private void calculateResult(PlayerLottoes playerLottoes, WinningLotto winningLotto) {
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
         lottoResult.calculateWinningRank();
-        outputView.guideLottoResult(lottoResult.getRankingsResult());
+        outputView.printLottoResult(lottoResult.getRankingsResult());
         outputView.printProfit(lottoResult.calculateYield());
     }
 }
