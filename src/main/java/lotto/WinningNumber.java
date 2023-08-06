@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinningNumber {
+    private static final Integer ONE = 1;
     private static final Integer BONUS_AVAILABLE = 5;
     private final Lotto winningNumbers;
     private final Integer bonusNumber;
@@ -44,7 +45,7 @@ public class WinningNumber {
 
     private int getMatchNum(final boolean isBonusMatch, final Integer size) {
         if (isBonusMatch) {
-            return size - 1;
+            return size - ONE;
         }
         return size;
     }

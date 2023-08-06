@@ -3,7 +3,7 @@ package lotto;
 import java.util.*;
 
 public class ResultMap {
-    private static final Integer NONE = 0;
+    private static final Long NONE = 0L;
     private static final Integer ONE = 1;
     private final Map<RewardMoney, Integer> resultMap = new EnumMap<>(RewardMoney.class);
 
@@ -15,10 +15,10 @@ public class ResultMap {
     private void initializeResultMap() {
         Arrays.stream(RewardMoney.values()).forEach(rewardMoney -> {
             if (!rewardMoney.equals(RewardMoney.MATCH_WITH_BONUS)) {
-                this.resultMap.put(rewardMoney, NONE);
+                this.resultMap.put(rewardMoney, NONE.intValue());
                 return;
             }
-            this.resultMap.put(rewardMoney, NONE);
+            this.resultMap.put(rewardMoney, NONE.intValue());
         });
     }
 
@@ -33,6 +33,6 @@ public class ResultMap {
     public Long getRewardAmount() {
         return this.resultMap.keySet().stream()
                 .map(rewardMoney -> rewardMoney.toValue() * resultMap.get(rewardMoney))
-                .reduce(0L, Long::sum);
+                .reduce(NONE, Long::sum);
     }
 }
