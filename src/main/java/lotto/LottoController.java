@@ -27,5 +27,6 @@ public class LottoController {
 
     public void publishLottoTickets(final Integer publishNum) {
         final List<LottoTicket> lottoTickets = lottoService.publishLottoTickets(publishNum);
+        outputManager.printLottoTickets(lottoTickets);
     }
 }

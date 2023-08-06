@@ -11,4 +11,8 @@ public class OutputManager {
     public void printPublishNum(final Integer publishNum) {
         System.out.println(String.format(LottoMessage.PUBLISH_NUM_MESSAGE.toString(), publishNum));
     }
+
+    public void printLottoTickets(final List<LottoTicket> lottoTickets) {
+        lottoTickets.forEach(System.out::println);
+    }
 }
