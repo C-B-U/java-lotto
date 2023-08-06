@@ -18,6 +18,7 @@ public class InputFactory {
 
     public int readPurchaseAmount() {
         String userInput = Console.readLine();
+        inputValidator.validatePurchaseAmount(userInput);
         return Integer.parseInt(userInput);
     }
 
