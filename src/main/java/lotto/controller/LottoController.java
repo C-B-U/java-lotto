@@ -16,19 +16,30 @@ public class LottoController {
 
     public void start() {
         try {
-            outputView.guidePurchaseLotto();
-            LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
-            outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
-            WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
-            PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
-            outputView.printPlayerLottoes(playerLottoes);
-            LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
-            lottoResult.calculateWinningRank();
-            outputView.guideLottoResult(lottoResult.getRankingsResult());
-            outputView.printProfit(lottoResult.calculateYield());
+            PlayerLottoes playerLottoes = buyLotto();
+            WinningLotto winningLotto = createWinningLotto();
+            calculateResult(playerLottoes, winningLotto);
         } catch (IllegalArgumentException error) {
             outputView.printErrorMessage(error.getMessage());
         }
+    }
 
+    private PlayerLottoes buyLotto() {
+        LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
+        PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
+        outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
+        outputView.printPlayerLottoes(playerLottoes);
+        return playerLottoes;
+    }
+
+    private WinningLotto createWinningLotto() {
+        return new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
+    }
+
+    private void calculateResult(PlayerLottoes playerLottoes, WinningLotto winningLotto) {
+        LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
+        lottoResult.calculateWinningRank();
+        outputView.guideLottoResult(lottoResult.getRankingsResult());
+        outputView.printProfit(lottoResult.calculateYield());
     }
 }
