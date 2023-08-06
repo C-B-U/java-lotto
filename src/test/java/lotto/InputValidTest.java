@@ -24,5 +24,11 @@ class InputValidTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("로또 당첨 번호가 중복된 수를 입력하면 예외가 발생한다.")
+    void inputWinLottoNumberIsDuplicate(){
+        assertThatThrownBy(() -> memberService.getWinLottoNumber("1,2,3,4,5,5"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
 }
