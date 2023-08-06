@@ -16,4 +16,13 @@ class InputValidTest {
         assertThatThrownBy(() -> memberService.getLottoPrice("14500"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("로또 구입 금액이 숫자가 아니면 예외가 발생한다.")
+    void inputLottoAmountIsNotNumber(){
+        assertThatThrownBy(() -> memberService.getLottoPrice("10000j"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
 }
