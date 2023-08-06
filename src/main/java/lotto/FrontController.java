@@ -11,5 +11,6 @@ public class FrontController {
         lottoController.saveLotto();
         final Integer publishNum = lottoController.getPublishNum();
         lottoController.publishLottoTickets(publishNum);
+        lottoController.getWinLotteryDetails();
     }
 }

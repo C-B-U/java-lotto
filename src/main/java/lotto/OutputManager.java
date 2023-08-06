@@ -15,4 +15,8 @@ public class OutputManager {
     public void printLottoTickets(final List<LottoTicket> lottoTickets) {
         lottoTickets.forEach(System.out::println);
     }
+
+    public void printCreateWinningNumber() {
+        System.out.println(LottoMessage.CREATE_WINNING_NUMBER_MESSAGE);
+    }
 }

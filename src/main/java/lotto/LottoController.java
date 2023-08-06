@@ -29,4 +29,9 @@ public class LottoController {
         final List<LottoTicket> lottoTickets = lottoService.publishLottoTickets(publishNum);
         outputManager.printLottoTickets(lottoTickets);
     }
+
+    public void getWinLotteryDetails() {
+        outputManager.printCreateWinningNumber();
+        inputManager.winningNumberInput();
+    }
 }
