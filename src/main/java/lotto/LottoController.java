@@ -15,5 +15,7 @@ public class LottoController {
         lottoService.saveLotto();
         outputManager.printStartMessage();
         final Integer buyAmount = inputManager.buyAmountInput();
+        final Integer publishNum = lottoService.getPublishNum(buyAmount);
+        outputManager.printPublishNum(publishNum);
     }
 }
