@@ -32,4 +32,10 @@ public class ResultMap {
     public Map<Result, Integer> getResultMap() {
         return this.resultMap;
     }
+
+    public Long getRewardAmount() {
+        return this.resultMap.keySet().stream()
+                .map(result -> result.getRewardMoney().toValue() * resultMap.get(result))
+                .reduce(0L, Long::sum);
+    }
 }

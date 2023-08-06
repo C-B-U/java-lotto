@@ -17,7 +17,7 @@ class LottoServiceTest {
         //given
 
         //when
-        final Integer publishNum = lottoService.savePublishNum(1000);
+        final Integer publishNum = lottoService.savePublishNumber(1000);
 
         //then
         assertThat(publishNum).isEqualTo(1);

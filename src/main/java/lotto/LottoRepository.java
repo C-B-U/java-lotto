@@ -6,6 +6,7 @@ public class LottoRepository {
     private List<Lotto> lotto;
     private WinningNumber winningNumber;
     private Integer publishNumber;
+    private Long rewardAmount;
 
     public void savePublishNumber(final Integer publishNumber) {
         this.publishNumber = publishNumber;
@@ -29,5 +30,13 @@ public class LottoRepository {
 
     public WinningNumber findWinningNumber() {
         return this.winningNumber;
+    }
+
+    public void saveRewardAmount(final Long rewardAmount) {
+        this.rewardAmount = rewardAmount;
+    }
+
+    public Long findRewardAmount() {
+        return this.rewardAmount;
     }
 }

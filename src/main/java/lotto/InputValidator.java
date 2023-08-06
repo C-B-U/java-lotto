@@ -25,4 +25,10 @@ public class InputValidator {
             throw new IllegalArgumentException(String.format(ErrorMessage.NOT_LIST_WITH_COMMA_ERROR.toString(), LottoNumberRange.NUMBER_NUM));
         }
     }
+
+    public void validateLottoNumber(final Integer lottoNumberInput) {
+        if (lottoNumberInput < LottoNumberRange.MIN_RANGE.toValue() || lottoNumberInput > LottoNumberRange.MAX_RANGE.toValue()) {
+            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_VALID_LOTTO_NUMBER_ERROR.toString()));
+        }
+    }
 }

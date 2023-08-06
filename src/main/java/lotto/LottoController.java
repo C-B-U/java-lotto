@@ -17,7 +17,7 @@ public class LottoController {
         outputManager.printStartMessage();
 
         final Integer buyAmount = inputManager.buyAmountInput();
-        final Integer publishNum = lottoService.savePublishNum(buyAmount);
+        final Integer publishNum = lottoService.savePublishNumber(buyAmount);
 
         outputManager.printPublishNum(publishNum);
     }
@@ -41,5 +41,10 @@ public class LottoController {
         outputManager.printWinningStatistics();
         final ResultMap resultMap = lottoService.checkWinningNumber();
         outputManager.printResult(resultMap);
+    }
+
+    public void checkEarningRate() {
+        final Double earningRate = lottoService.checkEarningRate();
+        outputManager.printEarningRate(earningRate);
     }
 }

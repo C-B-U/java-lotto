@@ -11,11 +11,11 @@ public class OutputManager {
     }
 
     public void printStartMessage() {
-        System.out.println(LottoMessage.START_MESSAGE);
+        System.out.println(LottoMessage.BUY_TO_START);
     }
 
     public void printPublishNum(final Integer publishNum) {
-        System.out.println(String.format(LottoMessage.PUBLISH_NUM_MESSAGE.toString(), publishNum));
+        System.out.println(String.format(LottoMessage.PUBLISH_NUM.toString(), publishNum));
     }
 
     public void printLottoList(final List<Lotto> lottoList) {
@@ -23,11 +23,11 @@ public class OutputManager {
     }
 
     public void printCreateWinningNumber() {
-        System.out.println(LottoMessage.CREATE_WINNING_NUMBER_MESSAGE);
+        System.out.println(LottoMessage.CREATE_WINNING_NUMBER);
     }
 
     public void printCreateBonusNumber() {
-        System.out.println(LottoMessage.CREATE_BONUS_NUMBER_MESSAGE);
+        System.out.println(LottoMessage.CREATE_BONUS_NUMBER);
     }
 
     public void printWinningStatistics() {
@@ -54,5 +54,9 @@ public class OutputManager {
         System.out.println(String.format(
                 LottoMessage.NUM_OF_MATCH.toString(),
                 rewardMoneyMap.getMatchNum(result.getRewardMoney()), numberFormat.format(result.getRewardMoney().toValue()), numOfResult));
+    }
+
+    public void printEarningRate(final Double earningRate) {
+        System.out.println(String.format(LottoMessage.EARNING_RATE.toString(), earningRate));
     }
 }

@@ -12,5 +12,6 @@ public class FrontController {
         lottoController.publishLotto();
         lottoController.getWinningNumber();
         lottoController.checkWinningNumber();
+        lottoController.checkEarningRate();
     }
 }

@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 public class LottoService {
     private static final Integer ZERO = 0;
     private static final Integer MONEY_UNIT = 1000;
+    private static final Double PERCENTAGE = 100.0;
     private final LottoRepository lottoRepository;
 
     public LottoService(final LottoRepository lottoRepository) {
@@ -22,7 +23,7 @@ public class LottoService {
                 LottoNumberRange.NUMBER_NUM.toValue());
     }
 
-    public Integer savePublishNum(final Integer buyAmount) {
+    public Integer savePublishNumber(final Integer buyAmount) {
         final Integer publishNumber = divideByMoneyUnit(buyAmount);
         lottoRepository.savePublishNumber(publishNumber);
         return publishNumber;
@@ -57,6 +58,22 @@ public class LottoService {
     public ResultMap checkWinningNumber() {
         final List<Lotto> lottoList = lottoRepository.findAllLotto();
         final WinningNumber winningNumber = lottoRepository.findWinningNumber();
-        return winningNumber.compareWithLottoList(lottoList);
+        final ResultMap resultMap = winningNumber.compareWithLottoList(lottoList);
+        lottoRepository.saveRewardAmount(resultMap.getRewardAmount());
+        return resultMap;
+    }
+
+    public Double checkEarningRate() {
+        final long earnedAmount = lottoRepository.findRewardAmount();
+        final int investmentAmount = getInvestment();
+        return getEarningRate(earnedAmount, investmentAmount);
+    }
+
+    private double getEarningRate(final long earnedAmount, final int investmentAmount) {
+        return ((double)earnedAmount / (double)investmentAmount) * PERCENTAGE;
+    }
+
+    private int getInvestment() {
+        return lottoRepository.findPublishNumber() * MONEY_UNIT;
     }
 }

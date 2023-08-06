@@ -28,6 +28,7 @@
 - getPublishNum() 로또 발행량 계산
 - publishLotto() 로또 티켓 발행
 - getWinningNumber() 당첨 번호 및 보너스 번호 저장후 조회
+- checkEarningRate() 수익률 조회
 
 ## LottoService - 로또 서비스
 - saveLotto() 랜덤한 숫자 생성을 통한 Lotto 생성 및 저장
@@ -35,6 +36,7 @@
 - publishLotto() 로또 티켓 발행
 - saveWinningNumber() 당첨 번호 저장
 - checkWinningNumber() 당점 정보 비교 및 결과 계산
+- checkEarningRate() 수익률 조회
 
 ## LottoRepository - 로또 레포지토리
 - saveLotto() Lotto 객체 저장
@@ -43,6 +45,8 @@
 - findWinningNumber() 당첨 번호 조회
 - savePublishNumber() 발행량 저장
 - findPublishNumber() 발행량 조회
+- saveRewardAmount() 당첨금 저장
+- findRewardAmount() 당첨금 조회
 
 ## InputManager - 입력 받기
 - buyAmountInput() 구매 금액 입력
@@ -61,9 +65,11 @@
 - printCreateWinningNumber() 당첨 번호 입력 메시지 출력
 - printCreateBonusNumber() 보너스 번호 입력 메시지 출력
 - printResult() 결과 정보 출력
+- printEarningRate() 수익률 출력
 
 ## ResultMap - 결과 종류 마다의 개수 저장
 - getResultMap() 결과 관련 map 조회
+- getRewardAmount() 최종 얻은 수익 계산
 
 ## Result - 결과 단건에 대한 정보 저장
 - getRewardMoney() RewardMoney 정보 조회
