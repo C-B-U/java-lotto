@@ -6,28 +6,28 @@ import java.util.Set;
 
 public class InputValidator {
 
-    public void validateInputLottoAmount(String lottoAmount){
-        validateInputNumber(lottoAmount);
-        validateInputThousands(lottoAmount);
+    public void validateInputLottoPrice(String lottoPrice){
+        validateInputNumber(lottoPrice);
+        validateInputThousands(lottoPrice);
     }
 
-    private static void validateInputThousands(String lottoAmount) {
-        if(Integer.parseInt(lottoAmount) % 1000 != 0){
-            throw new IllegalArgumentException("[ERROR] 로또 구입 금액은 1,000 단위 입니다.");
+    private static void validateInputThousands(String lottoPrice) {
+        if(Integer.parseInt(lottoPrice) % 1000 != 0){
+            throw new IllegalArgumentException(InputErrorMessage.INPUT_THOUSAND.getMessage());
         }
     }
 
     public void validateInputNumber(String number){
         final String regex = "^[0-9]+$";
         if (!number.matches(regex)){
-            throw new IllegalArgumentException("[ERROR] 로또 구입 금액은 오로지 숫자입니다.");
+            throw new IllegalArgumentException(InputErrorMessage.INPUT_NUMBER.getMessage());
         }
     }
 
     public void validateInputLottoNumber(List<Integer> numbers) {
         Set<Integer> numberCount = new HashSet<>(numbers);
         if (numberCount.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 6자리 수 입니다.");
+            throw new IllegalArgumentException(InputErrorMessage.INPUT_NOT_DUPLICATE_AND_SIX.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class InputValidator {
         validateInputNumber(bonusNumber);
         int bonusNumberInt = Integer.parseInt(bonusNumber);
         if (isNotNumberInRange(bonusNumberInt) && isNumberContainInList(bonusNumberInt, winLottoNumber)){
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 1~45 사이의 당첨 번호에 포함되지 않는 숫자입니다.");
+            throw new IllegalArgumentException(InputErrorMessage.INPUT_NUMBER_RANGE.getMessage());
         }
     }
 
