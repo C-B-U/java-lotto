@@ -1,8 +1,8 @@
 package lotto.member.exception;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InputValidator {
 
@@ -25,7 +25,9 @@ public class InputValidator {
     }
 
     public void validateInputLottoNumber(List<Integer> winLottoNumbers) {
-        Set<Integer> finalLottoNumber = new HashSet<>(winLottoNumbers);
+        Set<Integer> finalLottoNumber = winLottoNumbers.stream()
+                .peek(this::validateNumberInRange)
+                .collect(Collectors.toSet());
         if (finalLottoNumber.size() != LottoRule.SIZE.getValue()) {
             throw new IllegalArgumentException(InputErrorMessage.NOT_DUPLICATE_AND_SIX.getMessage());
         }
@@ -33,17 +35,19 @@ public class InputValidator {
 
     public void validateInputBonusNumber(String bonusNumber, List<Integer> winLottoNumber) {
         validateInputNumber(bonusNumber);
-        int bonusNumberInt = Integer.parseInt(bonusNumber);
-        if (isNotNumberInRange(bonusNumberInt) || isNumberContainInList(bonusNumberInt, winLottoNumber)){
-            throw new IllegalArgumentException(InputErrorMessage.NUMBER_RANGE.getMessage());
+        validateNumberInRange(Integer.parseInt(bonusNumber));
+        validateNumberContainInList(Integer.parseInt(bonusNumber),winLottoNumber);
+    }
+
+    private void validateNumberInRange(int number){
+        if(number < LottoRule.START_NUMBER.getValue() || number > LottoRule.END_NUMBER.getValue()){
+            throw new IllegalArgumentException(InputErrorMessage.IN_NUMBER_RANGE.getMessage());
         }
     }
 
-    private boolean isNotNumberInRange(int number){
-        return number < LottoRule.START_NUMBER.getValue() || number > LottoRule.END_NUMBER.getValue();
-    }
-
-    private boolean isNumberContainInList(int bonusNumberInt, List<Integer> winLottoNumber){
-        return winLottoNumber.contains(bonusNumberInt);
+    private void validateNumberContainInList(int bonusNumberInt, List<Integer> winLottoNumber){
+        if(winLottoNumber.contains(bonusNumberInt)){
+            throw new IllegalArgumentException(InputErrorMessage.IN_WIN_LOTTO_NUMBER.getMessage());
+        }
     }
 }
