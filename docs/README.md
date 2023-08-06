@@ -16,12 +16,12 @@
 
 ### 당첨 로또 (WinningLotto)
 [x] 입력받은 당첨 로또 관리
+
 [x] 보너스 숫자 관리
 
-### 로또 당첨 판별 (LottoResult)
+### 로또 당첨 계산 (LottoResult)
 [x] 로또 당첨 여부 판별
 
-### 수익률 계산 (YieldCalculator)
 [x] 수익률 계산
 
 
