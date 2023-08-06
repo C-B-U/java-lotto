@@ -38,4 +38,11 @@ class InputValidTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("보너스 번호가 로또 번호 범위에 없으면 예외가 발생한다.")
+    void inputBonusNumberNotInRange(){
+        assertThatThrownBy(() -> memberService.getBonusNumber("100"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
