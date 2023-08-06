@@ -19,7 +19,10 @@ public class LottoService {
     }
 
     private List<Integer> createRandomNumbers() {
-        return Randoms.pickUniqueNumbersInRange(Number.MIN_RANGE.toValue(), Number.MAX_RANGE.toValue(), Number.NUMBER_NUM.toValue());
+        return Randoms.pickUniqueNumbersInRange(
+                Number.MIN_RANGE.toValue(),
+                Number.MAX_RANGE.toValue(),
+                Number.NUMBER_NUM.toValue());
     }
 
     public Integer getPublishNum(final Integer buyAmount) {
@@ -31,16 +34,22 @@ public class LottoService {
     }
 
     public List<LottoTicket> publishLottoTickets(final Integer publishNum) {
-        final List<LottoTicket> lottoTickets = IntStream.range(Number.ZERO.toValue(), publishNum)
-                .mapToObj(i -> createRandomNumbers())
-                .map(LottoTicket::new)
-                .collect(Collectors.toList());
-
+        final List<LottoTicket> lottoTickets = createLottoTickets(publishNum);
         lottoRepository.saveLottoTicket(lottoTickets);
         return lottoTickets;
     }
 
-    public WinningNumber saveWinningNumber(final List<Integer> winningNumberInput, final Integer bonusNumberInput) {
+    private List<LottoTicket> createLottoTickets(final Integer publishNum) {
+        return IntStream.range(Number.ZERO.toValue(), publishNum)
+                .mapToObj(i -> createRandomNumbers())
+                .map(LottoTicket::new)
+                .collect(Collectors.toList());
+    }
+
+    public WinningNumber saveWinningNumber(
+            final List<Integer> winningNumberInput,
+            final Integer bonusNumberInput) {
+
         final WinningNumber winningNumber = new WinningNumber(winningNumberInput, bonusNumberInput);
         lottoRepository.saveWinningNumber(winningNumber);
         return winningNumber;

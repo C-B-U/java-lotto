@@ -14,13 +14,13 @@ public class InputValidator {
 
     public void validateMultiplyOfThousand(final Integer buyAmountInput) {
         if (buyAmountInput % Number.THOUSAND.toValue() != Number.ZERO.toValue()) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_MULTIPLY_OF_THOUSAND_ERROR.toString());
+            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_MULTIPLY_ERROR.toString(), Number.THOUSAND));
         }
     }
 
     public void validateIsListWithComma(final String input) {
         if (!Pattern.matches(LIST_WITH_COMMA_MATCHER, input)) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_LIST_WITH_COMMA_ERROR.toString());
+            throw new IllegalArgumentException(String.format(ErrorMessage.NOT_LIST_WITH_COMMA_ERROR.toString(), Number.NUMBER_NUM));
         }
     }
 }
