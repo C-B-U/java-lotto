@@ -14,24 +14,26 @@ public class ProducerService {
     }
 
     public List<Lotto> getLottoNumbers(int lottoAmount){
-        System.out.println();
-        System.out.println(lottoAmount + "개를 구매했습니다.");
+        System.out.print(OutputMessage.ENTER.getMessage());
+        System.out.println(lottoAmount + OutputMessage.PURCHASED.getMessage());
         for (int i = 0; i < lottoAmount; i++){
             List<Integer> lottoNumber = producerRepository.createLottoNumber();
             System.out.println(resultLottoNumber(lottoNumber));
         }
-        System.out.println();
+        System.out.print(OutputMessage.ENTER.getMessage());
         return producerRepository.getLottos();
     }
 
     public String resultLottoNumber(List<Integer> lottoNumber){
         StringBuilder lottoResult = new StringBuilder();
-        lottoResult.append("[");
+        lottoResult.append(OutputMessage.FIRST_BRACKET.getMessage());
         for (int i = 0; i < lottoNumber.size()-1; i++){
-            lottoResult.append(lottoNumber.get(i)).append(", ");
+            lottoResult.append(lottoNumber.get(i))
+                    .append(OutputMessage.COMMA.getMessage())
+                    .append(OutputMessage.BLANK.getMessage());
         }
         lottoResult.append(lottoNumber.get(lottoNumber.size()-1));
-        lottoResult.append("]");
+        lottoResult.append(OutputMessage.LAST_BRACKET.getMessage());
         return lottoResult.toString();
     }
     
