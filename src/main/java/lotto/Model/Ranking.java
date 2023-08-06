@@ -3,22 +3,23 @@ package lotto.Model;
 import java.util.Arrays;
 
 public enum Ranking {
-
-    NONE(0, 0, false),
-    FIFTH(5000, 3, false),
-    FOURTH(50000, 4, false),
-    THIRD(1500000, 5, false),
-    SECOND(30000000, 5, true),
-    FIRST(2000000000, 6, false);
+    NONE(0, 0, false, null),
+    FIFTH(5000, 3, false, "3개 일치 (5,000원) - %d개"),
+    FOURTH(50000, 4, false, "4개 일치 (50,000원) - %d개"),
+    THIRD(1500000, 5, false, "5개 일치 (1,500,000원) - %d개"),
+    SECOND(30000000, 5, true, "5개 일치, 보너스 볼 일치 (30,000,000원) - %d개"),
+    FIRST(2000000000, 6, false, "6개 일치 (2,000,000,000원) - %d개");
 
     private final int prize;
     private final int matchNumber;
     private final boolean isMatchBonus;
+    private final String message;
 
-    Ranking(int prize, int matchNumber, boolean isMatchBonus) {
+    Ranking(int prize, int matchNumber, boolean isMatchBonus, String message) {
         this.prize = prize;
         this.matchNumber = matchNumber;
         this.isMatchBonus = isMatchBonus;
+        this.message = message;
     }
 
     public static Ranking calculate(int matchNumber, boolean isMatchBonus) {
@@ -31,5 +32,9 @@ public enum Ranking {
 
     public int getPrize() {
         return prize;
+    }
+
+    public String getMessage(int result) {
+        return String.format(message, result);
     }
 }

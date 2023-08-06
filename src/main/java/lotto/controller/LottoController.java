@@ -21,6 +21,7 @@ public class LottoController {
         PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
         LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
         lottoResult.calculateWinningRank();
-        System.out.println(lottoResult.calculateYield());
+        lottoResult.calculateYield();
+        outputView.guideLottoResult(lottoResult.getRankingsResult());
     }
 }
