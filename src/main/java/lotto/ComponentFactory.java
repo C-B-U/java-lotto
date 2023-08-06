@@ -7,6 +7,10 @@ public class ComponentFactory {
     }
 
     private LottoService lottoService() {
-        return new LottoService();
+        return new LottoService(lottoRepository());
+    }
+
+    private LottoRepository lottoRepository() {
+        return new LottoRepository();
     }
 }

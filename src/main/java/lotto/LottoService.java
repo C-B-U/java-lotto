@@ -5,6 +5,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class LottoService {
+    private final LottoRepository lottoRepository;
+
+    public LottoService(LottoRepository lottoRepository) {
+        this.lottoRepository = lottoRepository;
+    }
 
     public void saveLotto() {
         final Lotto lotto = new Lotto(createRandomNumbers());

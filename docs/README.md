@@ -22,6 +22,7 @@
 - saveLotto() 랜덤한 숫자 생성을 통한 Lotto 생성 및 저장
 
 ## LottoRepository - 로또 레포지토리
+- saveLotto() Lotto 객체 저장
 
 ## InputManager - 입력 받기
 
