@@ -26,8 +26,7 @@ public class InputManager {
     public List<Integer> winningNumberInput() {
         final String input = Console.readLine();
         inputValidator.validateIsListWithComma(input);
-        final List<Integer> winningNumber = convertToList(input);
-        return winningNumber;
+        return convertToList(input);
     }
 
     private List<Integer> convertToList(final String input) {
@@ -39,8 +38,6 @@ public class InputManager {
     public Integer bonusNumberInput() {
         final String input = Console.readLine();
         inputValidator.validateIsNumeric(input);
-
-        final Integer inputNumber = Integer.valueOf(input);
-        return inputNumber;
+        return Integer.valueOf(input);
     }
 }

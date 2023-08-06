@@ -13,4 +13,12 @@ public class LottoRepository {
     public void saveWinningNumber(final WinningNumber winningNumber) {
         this.winningNumber = winningNumber;
     }
+
+    public List<Lotto> findAllLotto() {
+        return this.lotto;
+    }
+
+    public WinningNumber findWinningNumber() {
+        return this.winningNumber;
+    }
 }

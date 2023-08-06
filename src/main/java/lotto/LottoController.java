@@ -40,5 +40,7 @@ public class LottoController {
 
     public void checkWinningNumber() {
         outputManager.printWinningStatistics();
+        final ResultMap resultMap = lottoService.checkWinningNumber();
+        outputManager.printResult(resultMap);
     }
 }

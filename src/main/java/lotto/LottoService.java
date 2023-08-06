@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LottoService {
-    private static final Integer MONEY_UNIT = 1000;
     private static final Integer ZERO = 0;
+    private static final Integer MONEY_UNIT = 1000;
     private final LottoRepository lottoRepository;
 
     public LottoService(final LottoRepository lottoRepository) {
@@ -49,5 +49,11 @@ public class LottoService {
 
         final WinningNumber winningNumber = new WinningNumber(winningNumberInput, bonusNumberInput);
         lottoRepository.saveWinningNumber(winningNumber);
+    }
+
+    public ResultMap checkWinningNumber() {
+        final List<Lotto> lottoList = lottoRepository.findAllLotto();
+        final WinningNumber winningNumber = lottoRepository.findWinningNumber();
+        return winningNumber.compareWithLottoList(lottoList);
     }
 }

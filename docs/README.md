@@ -15,6 +15,10 @@
 
 # 구현할 클래스 목록
 ## WinningNumber - 당첨 번호
+- compareWithLottoList() 당첨 번호와 로또 번호 비교
+
+## Lotto - 로또 정보
+- getNumbers() 로또 번호 조회
 
 ## FrontController - 프론트 컨트롤러
 - playLotto() 로또 플레이
@@ -30,10 +34,13 @@
 - getPublishNum() 로또 발행량 계산
 - publishLotto() 로또 티켓 발행
 - saveWinningNumber() 당첨 번호 저장
+- checkWinningNumber() 당점 정보 비교 및 결과 계산
 
 ## LottoRepository - 로또 레포지토리
 - saveLotto() Lotto 객체 저장
 - saveWinningNumber() WinningNumber 객체 저장
+- findAllLotto() 로또 전체 조회
+- findWinningNumber() 당첨 번호 조회
 
 ## InputManager - 입력 받기
 - buyAmountInput() 구매 금액 입력
@@ -51,6 +58,17 @@
 - printLottoList() 발행한 로또 티켓 출력
 - printCreateWinningNumber() 당첨 번호 입력 메시지 출력
 - printCreateBonusNumber() 보너스 번호 입력 메시지 출력
+- printResult() 결과 정보 출력
+
+## ResultMap - 결과 종류 마다의 개수 저장
+- getResultMap() 결과 관련 map 조회
+
+## Result - 결과 단건에 대한 정보 저장
+- getRewardMoney() RewardMoney 정보 조회
+
+## RewardMoneyMap - 당첨금 관련 매핑 정보 저장
+- getRewardMoney() 개수에 따른 RewardMoney 조회
+- getMatchNum() RewardMoney에 따른 개수 조회
 
 ## ComponentFactory - 컴포넌트들의 생성
 
@@ -60,3 +78,5 @@
 ## ErrorMessage - 에러 메시지
 
 ## LottoNumberRange - 로또 생성 범위
+
+## RewardMoney - 당첨금 정보

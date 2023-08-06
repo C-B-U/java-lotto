@@ -1,8 +1,14 @@
 package lotto;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 public class OutputManager {
+    private final NumberFormat numberFormat;
+
+    public OutputManager() {
+        this.numberFormat = NumberFormat.getNumberInstance();
+    }
 
     public void printStartMessage() {
         System.out.println(LottoMessage.START_MESSAGE);
@@ -26,5 +32,27 @@ public class OutputManager {
 
     public void printWinningStatistics() {
         System.out.println(LottoMessage.WINNING_STATISTICS);
+    }
+
+    public void printResult(final ResultMap resultMap) {
+        resultMap.getResultMap().forEach(((result, numOfResult) ->{
+                    if (!result.getRewardMoney().equals(RewardMoney.NONE)) {
+                        printResultByMoney(result, numOfResult);
+                    }
+        }));
+    }
+
+    private void printResultByMoney(final Result result, final Integer numOfResult) {
+        RewardMoneyMap rewardMoneyMap = RewardMoneyMap.getInstance();
+
+        if (result.getRewardMoney().equals(RewardMoney.MATCH_WITH_BONUS)) {
+            System.out.println(String.format(
+                    LottoMessage.BONUS_MATCH.toString(),
+                    rewardMoneyMap.getMatchNum(result.getRewardMoney()), numberFormat.format(result.getRewardMoney().toValue()), numOfResult));
+            return;
+        }
+        System.out.println(String.format(
+                LottoMessage.NUM_OF_MATCH.toString(),
+                rewardMoneyMap.getMatchNum(result.getRewardMoney()), numberFormat.format(result.getRewardMoney().toValue()), numOfResult));
     }
 }

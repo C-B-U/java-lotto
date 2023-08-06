@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 public class InputValidator {
     private static final String NUMERIC_MATCHER = "-?\\d+";
     private static final String LIST_WITH_COMMA_MATCHER = "\\d+,\\d+,\\d+,\\d+,\\d+,\\d+";
-    private static final Integer MONEY_UNIT = 1000;
     private static final Integer NONE = 0;
+    private static final Integer MONEY_UNIT = 1000;
 
     public void validateIsNumeric(final String buyAmountInput) {
         if (!buyAmountInput.matches(NUMERIC_MATCHER)) {
