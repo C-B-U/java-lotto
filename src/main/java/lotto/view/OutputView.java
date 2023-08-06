@@ -40,4 +40,8 @@ public class OutputView {
     private void printLottoNumber(Lotto lotto) {
         System.out.println(lotto.getNumbers());
     }
+
+    public void printProfit(Double profit) {
+        System.out.printf((OutputMessage.PROFIT_MESSAGE.toString()), profit);
+    }
 }
