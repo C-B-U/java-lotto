@@ -24,9 +24,9 @@ public class InputValidator {
         }
     }
 
-    public void validateInputLottoNumber(List<Integer> numbers) {
-        Set<Integer> numberCount = new HashSet<>(numbers);
-        if (numberCount.size() != LottoRule.SIZE.getValue()) {
+    public void validateInputLottoNumber(List<Integer> winLottoNumbers) {
+        Set<Integer> finalLottoNumber = new HashSet<>(winLottoNumbers);
+        if (finalLottoNumber.size() != LottoRule.SIZE.getValue()) {
             throw new IllegalArgumentException(InputErrorMessage.INPUT_NOT_DUPLICATE_AND_SIX.getMessage());
         }
     }

@@ -25,20 +25,20 @@ public class MemberService {
         return Integer.parseInt(lottoPrice);
     }
 
-    public List<Integer> getWinLottoNumber(String winNumber){
-        for (Integer integer : convertWinLottoNumber(winNumber)) {
-            memberRepository.saveLottoNumber(integer);
+    public List<Integer> getWinLottoNumber(String winNumbers){
+        for (Integer winNumber : convertWinLottoNumber(winNumbers)) {
+            memberRepository.saveWinLottoNumber(winNumber);
         }
         return memberRepository.getWinLottoNumber();
     }
 
-    private List<Integer> convertWinLottoNumber(String winNumber) {
-        List<Integer> winNumberIntList = winNumber.chars()
+    private List<Integer> convertWinLottoNumber(String winNumbers) {
+        List<Integer> winLottoNumbers = winNumbers.chars()
                 .filter(Character::isDigit)
                 .mapToObj(c -> Character.getNumericValue((char)c))
                 .collect(Collectors.toList());
-        inputValidator.validateInputLottoNumber(winNumberIntList);
-        return winNumberIntList;
+        inputValidator.validateInputLottoNumber(winLottoNumbers);
+        return winLottoNumbers;
     }
 
     public int getBonusNumber(String bonusNumber) {

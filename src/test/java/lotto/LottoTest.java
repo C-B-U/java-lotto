@@ -60,7 +60,7 @@ class LottoTest {
 
         //when
         for (Integer num : winLottoNumber){
-            memberRepository.saveLottoNumber(num);
+            memberRepository.saveWinLottoNumber(num);
         }
 
         //then
