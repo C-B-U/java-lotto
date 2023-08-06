@@ -23,7 +23,7 @@ public class MemberController {
     }
 
     public int inputBonusNumber(){
-        System.out.print(InputMessage.BLANK.getMessage());
+        System.out.print(InputMessage.ENTER.getMessage());
         System.out.println(InputMessage.BONUS_NUMBER.getMessage());
         return memberService.getBonusNumber(Console.readLine());
     }

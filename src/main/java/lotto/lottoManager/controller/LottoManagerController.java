@@ -28,7 +28,7 @@ public class LottoManagerController {
        lottoManagerService.getLottoRate(lottoPrice);
     }
 
-    private int lottoCount(int lottoAmount){
-        return lottoAmount / 1000;
+    private int lottoCount(int lottoPrice){
+        return lottoPrice / 1000;
     }
 }
