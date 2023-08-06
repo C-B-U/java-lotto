@@ -13,21 +13,21 @@ public class InputValidator {
 
     private static void validateInputThousands(String lottoPrice) {
         if(Integer.parseInt(lottoPrice) % LottoRule.PRICE_UNIT.getValue() != 0){
-            throw new IllegalArgumentException(InputErrorMessage.INPUT_THOUSAND.getMessage());
+            throw new IllegalArgumentException(InputErrorMessage.THOUSAND.getMessage());
         }
     }
 
     public void validateInputNumber(String number){
         final String regex = "^[0-9]+$";
         if (!number.matches(regex)){
-            throw new IllegalArgumentException(InputErrorMessage.INPUT_NUMBER.getMessage());
+            throw new IllegalArgumentException(InputErrorMessage.NUMBER.getMessage());
         }
     }
 
     public void validateInputLottoNumber(List<Integer> winLottoNumbers) {
         Set<Integer> finalLottoNumber = new HashSet<>(winLottoNumbers);
         if (finalLottoNumber.size() != LottoRule.SIZE.getValue()) {
-            throw new IllegalArgumentException(InputErrorMessage.INPUT_NOT_DUPLICATE_AND_SIX.getMessage());
+            throw new IllegalArgumentException(InputErrorMessage.NOT_DUPLICATE_AND_SIX.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class InputValidator {
         validateInputNumber(bonusNumber);
         int bonusNumberInt = Integer.parseInt(bonusNumber);
         if (isNotNumberInRange(bonusNumberInt) || isNumberContainInList(bonusNumberInt, winLottoNumber)){
-            throw new IllegalArgumentException(InputErrorMessage.INPUT_NUMBER_RANGE.getMessage());
+            throw new IllegalArgumentException(InputErrorMessage.NUMBER_RANGE.getMessage());
         }
     }
 
