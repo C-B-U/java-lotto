@@ -15,31 +15,31 @@ public class WinningNumber {
     }
 
     public ResultMap compareWithLottoList(final List<Lotto> lottoList) {
-        final List<Integer> winningNumbers = this.winningNumbers.getNumbers();
-        winningNumbers.add(bonusNumber);
+        final List<Integer> numbers = this.winningNumbers.getNumbers();
+        numbers.add(bonusNumber);
 
-        final List<Result> resultList = lottoList.stream()
+        final List<RewardMoney> resultList = lottoList.stream()
                 .map(Lotto::getNumbers)
                 .map(ArrayList::new)
-                .peek(lotto -> lotto.retainAll(winningNumbers))
+                .peek(lotto -> lotto.retainAll(numbers))
                 .map(this::getResult)
                 .collect(Collectors.toList());
 
         return new ResultMap(resultList);
     }
 
-    private Result getResult(final List<Integer> lotto) {
+    private RewardMoney getResult(final List<Integer> lotto) {
         final boolean isBonusMatch = lotto.contains(bonusNumber);
         final int matchNum = getMatchNum(isBonusMatch, lotto.size());
         return getResultWithMatchNum(matchNum, isBonusMatch);
     }
 
-    private Result getResultWithMatchNum(final int matchNum, final boolean isBonusMatch) {
+    private RewardMoney getResultWithMatchNum(final int matchNum, final boolean isBonusMatch) {
         final RewardMoneyMap rewardMoneyMap = RewardMoneyMap.getInstance();
         if (matchNum != BONUS_AVAILABLE) {
-            return new Result(rewardMoneyMap.getRewardMoney(matchNum, false), matchNum, false);
+            return rewardMoneyMap.getRewardMoney(matchNum, false);
         }
-        return new Result(rewardMoneyMap.getRewardMoney(matchNum, isBonusMatch), matchNum, isBonusMatch);
+        return rewardMoneyMap.getRewardMoney(matchNum, isBonusMatch);
     }
 
     private int getMatchNum(final boolean isBonusMatch, final Integer size) {

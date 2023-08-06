@@ -36,24 +36,24 @@ public class OutputManager {
 
     public void printResult(final ResultMap resultMap) {
         resultMap.getResultMap().forEach(((result, numOfResult) ->{
-                    if (!result.getRewardMoney().equals(RewardMoney.NONE)) {
+                    if (!result.equals(RewardMoney.NONE)) {
                         printResultByMoney(result, numOfResult);
                     }
         }));
     }
 
-    private void printResultByMoney(final Result result, final Integer numOfResult) {
+    private void printResultByMoney(final RewardMoney rewardMoney, final Integer numOfResult) {
         RewardMoneyMap rewardMoneyMap = RewardMoneyMap.getInstance();
 
-        if (result.getRewardMoney().equals(RewardMoney.MATCH_WITH_BONUS)) {
+        if (rewardMoney.equals(RewardMoney.MATCH_WITH_BONUS)) {
             System.out.println(String.format(
                     LottoMessage.BONUS_MATCH.toString(),
-                    rewardMoneyMap.getMatchNum(result.getRewardMoney()), numberFormat.format(result.getRewardMoney().toValue()), numOfResult));
+                    rewardMoneyMap.getMatchNum(rewardMoney), numberFormat.format(rewardMoney.toValue()), numOfResult));
             return;
         }
         System.out.println(String.format(
                 LottoMessage.NUM_OF_MATCH.toString(),
-                rewardMoneyMap.getMatchNum(result.getRewardMoney()), numberFormat.format(result.getRewardMoney().toValue()), numOfResult));
+                rewardMoneyMap.getMatchNum(rewardMoney), numberFormat.format(rewardMoney.toValue()), numOfResult));
     }
 
     public void printEarningRate(final Double earningRate) {

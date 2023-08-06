@@ -71,9 +71,6 @@
 - getResultMap() 결과 관련 map 조회
 - getRewardAmount() 최종 얻은 수익 계산
 
-## Result - 결과 단건에 대한 정보 저장
-- getRewardMoney() RewardMoney 정보 조회
-
 ## RewardMoneyMap - 당첨금 관련 매핑 정보 저장
 - getRewardMoney() 개수에 따른 RewardMoney 조회
 - getMatchNum() RewardMoney에 따른 개수 조회

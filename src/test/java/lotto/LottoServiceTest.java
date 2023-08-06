@@ -9,7 +9,8 @@ import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("LottoService의 서비스 로직 중")
 class LottoServiceTest {
-    private LottoService lottoService = new LottoService(new LottoRepository());
+    private LottoRepository lottoRepository = new LottoRepository();
+    private LottoService lottoService = new LottoService(lottoRepository);
 
     @Test
     @DisplayName("발행 번호 조회가 수행되는가")
@@ -34,17 +35,5 @@ class LottoServiceTest {
 
         //then
         assertThat(lottoList).hasSize(1);
-    }
-
-    @Test
-    @DisplayName("당첨 번호 저장이 수행되는가")
-    void saveWinningNumber() {
-        //given
-
-        //when
-        lottoService.saveWinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
-
-        //then
-
     }
 }
