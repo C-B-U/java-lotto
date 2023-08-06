@@ -15,15 +15,20 @@ public class LottoController {
     }
 
     public void start() {
-        outputView.guidePurchaseLotto();
-        LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
-        outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
-        WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
-        PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
-        outputView.printPlayerLottoes(playerLottoes);
-        LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
-        lottoResult.calculateWinningRank();
-        outputView.guideLottoResult(lottoResult.getRankingsResult());
-        outputView.printProfit(lottoResult.calculateYield());
+        try {
+            outputView.guidePurchaseLotto();
+            LottoCounter lottoCounter = new LottoCounter(inputFactory.readPurchaseAmount());
+            outputView.printPurchaseCount(lottoCounter.getLotteryTicket());
+            WinningLotto winningLotto = new WinningLotto(inputFactory.readWinningNumber(), inputFactory.readBonusNumber());
+            PlayerLottoes playerLottoes = new PlayerLottoes(lottoCounter.getLotteryTicket());
+            outputView.printPlayerLottoes(playerLottoes);
+            LottoResult lottoResult = new LottoResult(winningLotto, playerLottoes);
+            lottoResult.calculateWinningRank();
+            outputView.guideLottoResult(lottoResult.getRankingsResult());
+            outputView.printProfit(lottoResult.calculateYield());
+        } catch (IllegalArgumentException error) {
+            outputView.printErrorMessage(error.getMessage());
+        }
+
     }
 }
