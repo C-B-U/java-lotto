@@ -43,6 +43,7 @@
 ## OutputManager - 출력하기
 - printStartMessage() 로또 시작 메시지 출력
 - printPublishNum() 로또 발행 개수 메시지 출력
+- printLottoTickets() 발행한 로또 티켓 출력
 
 ## ComponentFactory - 컴포넌트들의 생성
 
@@ -50,3 +51,5 @@
 ## LottoMessage - 로또 진행 메시지
 
 ## ErrorMessage - 에러 메시지
+
+## Number - 로또 생성 범위 및 로또 실행에 필요한 숫자
