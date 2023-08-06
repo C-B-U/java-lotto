@@ -13,18 +13,18 @@ public class MemberController {
     }
 
     public int inputLottoPrice(){
-        System.out.println("구입 금액을 입력해 주세요");
+        System.out.println(InputMessage.PURCHASE.getMessage());
         return memberService.getLottoPrice(Console.readLine());
     }
 
     public List<Integer> inputWinLottoNumber(){
-        System.out.println("당첨 번호를 입력해 주세요");
+        System.out.println(InputMessage.WIN_NUMBER.getMessage());
         return memberService.getWinLottoNumber(Console.readLine());
     }
 
     public int inputBonusNumber(){
-        System.out.println();
-        System.out.println("보너스 번호를 입력해 주세요.");
+        System.out.print(InputMessage.BLANK.getMessage());
+        System.out.println(InputMessage.BONUS_NUMBER.getMessage());
         return memberService.getBonusNumber(Console.readLine());
     }
 }
