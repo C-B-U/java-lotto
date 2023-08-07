@@ -3,7 +3,7 @@ package lotto;
 public class ComponentFactory {
 
     public FrontController frontController() {
-        return new FrontController(lottoController());
+        return new FrontController(lottoController(), outputManager());
     }
 
     private LottoController lottoController() {

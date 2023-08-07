@@ -44,4 +44,8 @@ public class OutputManager {
     public void printEarningRate(final Double earningRate) {
         System.out.println(outputFormatter.formatEarningRateString(earningRate));
     }
+
+    public void printErrorMessage(final String errorMessage) {
+        System.out.println(errorMessage);
+    }
 }

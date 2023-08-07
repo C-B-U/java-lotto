@@ -66,6 +66,7 @@
 - printCreateBonusNumber() 보너스 번호 입력 메시지 출력
 - printResult() 결과 정보 출력
 - printEarningRate() 수익률 출력
+- printErrorMessage() 에러 메시지 출력
 
 ## ResultMap - 결과 종류 마다의 개수 저장
 - getResultMap() 결과 관련 map 조회
