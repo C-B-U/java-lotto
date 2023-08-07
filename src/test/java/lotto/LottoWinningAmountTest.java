@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class CompareTest {
+class LottoWinningAmountTest {
     @DisplayName("1등 당첨")
     @Test
     void caseFirstGrade() {
