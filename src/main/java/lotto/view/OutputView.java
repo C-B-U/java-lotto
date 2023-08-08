@@ -11,6 +11,18 @@ public class OutputView {
     
     private static final int DEFAULT = 0;
 
+    public void printPurchaseMessage() {
+        System.out.println(OutputMessage.GUIDE_PURCHASE);
+    }
+
+    public void printWinningNumberMessage() {
+        System.out.println(OutputMessage.WINNING_NUMBER);
+    }
+
+    public void printBonusNumberMessage() {
+        System.out.println(OutputMessage.BONUS_NUMBER);
+    }
+
     public void printLottoResult(Map<Ranking, Integer> rankingResult) {
         System.out.println(OutputMessage.RESULT_MESSAGE);
         System.out.println(OutputMessage.LINE);
