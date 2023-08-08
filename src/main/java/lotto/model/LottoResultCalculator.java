@@ -1,4 +1,4 @@
-package lotto.Model;
+package lotto.model;
 
 public class LottoResultCalculator {
 
@@ -52,7 +52,7 @@ public class LottoResultCalculator {
 
     private double calculateTotalPrize() {
         double sum = 0;
-        for(Ranking ranking: lottoResult.keyset()) {
+        for(Ranking ranking: lottoResult.keySet()) {
             sum += ranking.getPrize() * lottoResult.get(ranking);
         }
         return sum;

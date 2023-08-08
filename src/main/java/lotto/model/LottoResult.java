@@ -1,4 +1,4 @@
-package lotto.Model;
+package lotto.model;
 
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -19,7 +19,7 @@ public class LottoResult {
         result.put(ranking, result.get(ranking) + 1);
     }
 
-    public Set<Ranking> keyset() {
+    public Set<Ranking> keySet() {
         return result.keySet();
     }
 

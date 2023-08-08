@@ -1,8 +1,8 @@
 package lotto.view;
 
-import lotto.Model.Lotto;
-import lotto.Model.PlayerLottoes;
-import lotto.Model.Ranking;
+import lotto.model.Lotto;
+import lotto.model.PlayerLottoes;
+import lotto.model.Ranking;
 
 import java.util.Arrays;
 import java.util.Map;

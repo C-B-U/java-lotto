@@ -1,6 +1,6 @@
 package lotto.controller;
 
-import lotto.Model.*;
+import lotto.model.*;
 import lotto.view.InputFactory;
 import lotto.view.OutputView;
 

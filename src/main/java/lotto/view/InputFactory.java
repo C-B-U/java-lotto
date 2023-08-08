@@ -1,8 +1,8 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.Model.Lotto;
-import lotto.Model.BonusNumber;
+import lotto.model.Lotto;
+import lotto.model.BonusNumber;
 
 import java.util.List;
 import java.util.stream.Collectors;
