@@ -8,25 +8,25 @@ public class InputValidator {
     String NUMBER_REGEXP = "^\\d*$";
 
     public void validateBonusNumber(String bonusNumber) {
-        isInteger(bonusNumber);
+        validateInteger(bonusNumber);
     }
 
     public void validatePurchaseAmount(String amount) {
-        isInteger(amount);
+        validateInteger(amount);
     }
 
     public void validateWinningNumbers(String winningNumbers) {
-        isContainComma(winningNumbers);
+        validateContainComma(winningNumbers);
     }
 
-    private void isInteger(String userInput) {
+    private void validateInteger(String userInput) {
         if (!Pattern.matches(NUMBER_REGEXP, userInput)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.NOT_INTEGER;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }
     }
 
-    private void isContainComma(String userInput) {
+    private void validateContainComma(String userInput) {
         if (!Pattern.matches(DELIMITER_REGEXP, userInput)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.NOT_CONTAIN_COMMA;
             throw new IllegalArgumentException(exceptionMessage.toString());
