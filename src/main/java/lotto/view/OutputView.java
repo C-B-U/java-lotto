@@ -8,8 +8,6 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class OutputView {
-    
-    private static final int DEFAULT = 0;
 
     public void printPurchaseMessage() {
         System.out.println(OutputMessage.GUIDE_PURCHASE);
@@ -32,7 +30,7 @@ public class OutputView {
     }
 
     private void printRankingMessage(Ranking ranking, Map<Ranking, Integer> rankingResult) {
-        System.out.println(ranking.getMessage(rankingResult.getOrDefault(ranking, DEFAULT)));
+        System.out.println(ranking.getMessage(rankingResult.get(ranking)));
     }
 
     public void printPurchaseCount(int lottoTicketsNumber) {

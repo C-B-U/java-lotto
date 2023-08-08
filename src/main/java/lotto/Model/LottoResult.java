@@ -1,5 +1,6 @@
 package lotto.Model;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
@@ -7,14 +8,15 @@ import java.util.Set;
 public class LottoResult {
 
     private final Map<Ranking, Integer> result;
-    private static final int DEFAULT = 0;
 
     public LottoResult() {
         this.result = new EnumMap<>(Ranking.class);
+        Arrays.stream(Ranking.values())
+                .forEach(ranking -> result.put(ranking, 0));
     }
 
     public void putResult(Ranking ranking) {
-        result.put(ranking, result.getOrDefault(ranking, DEFAULT) + 1);
+        result.put(ranking, result.get(ranking) + 1);
     }
 
     public Set<Ranking> keyset() {
