@@ -1,11 +1,11 @@
 package lotto.view;
 
 import lotto.model.Lotto;
+import lotto.model.LottoResult;
 import lotto.model.PlayerLottoes;
 import lotto.model.Ranking;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class OutputView {
 
@@ -21,7 +21,7 @@ public class OutputView {
         System.out.println(OutputMessage.BONUS_NUMBER);
     }
 
-    public void printLottoResult(Map<Ranking, Integer> rankingResult) {
+    public void printLottoResult(LottoResult rankingResult) {
         System.out.println(OutputMessage.RESULT_MESSAGE);
         System.out.println(OutputMessage.LINE);
         Arrays.stream(Ranking.values())
@@ -29,7 +29,7 @@ public class OutputView {
                 .forEach(ranking -> printRankingMessage(ranking, rankingResult));
     }
 
-    private void printRankingMessage(Ranking ranking, Map<Ranking, Integer> rankingResult) {
+    private void printRankingMessage(Ranking ranking, LottoResult rankingResult) {
         System.out.println(ranking.getMessage(rankingResult.get(ranking)));
     }
 

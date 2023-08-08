@@ -12,16 +12,18 @@ public class LottoResultCalculator {
     public LottoResultCalculator(WinningLotto winningLotto, PlayerLottoes playerLottoes) {
         this.winningLotto = winningLotto;
         this.playerLottoes = playerLottoes;
-        this.lottoResult = new LottoResult();
+        this.lottoResult = calculateWinningRank();
     }
 
-    public void calculateWinningRank() {
+    private LottoResult calculateWinningRank() {
+        LottoResult result = new LottoResult();
         for (Lotto lotto : playerLottoes.getLottoes()) {
             int matchNumber = calculateMatchNumber(lotto);
             boolean matchBonusNumber = hasBonusNumber(matchNumber, lotto);
             Ranking ranking = Ranking.calculate(calculateMatchNumber(lotto), matchBonusNumber);
-            lottoResult.putResult(ranking);
+            result.putResult(ranking);
         }
+        return result;
     }
 
     private Integer calculateMatchNumber(Lotto lotto) {

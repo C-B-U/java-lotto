@@ -21,8 +21,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(7,8,9,10,11,12)), new BonusNumber(45));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
-
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.NONE)).isEqualTo(1);
     }
 
@@ -34,7 +32,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(1,2,3,7,8,9)), new BonusNumber(4));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
 
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.FIFTH)).isEqualTo(1);
     }
@@ -47,7 +44,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(1,2,3,4,8,9)), new BonusNumber(5));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
 
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.FOURTH)).isEqualTo(1);
     }
@@ -60,7 +56,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(1,2,3,4,5,9)), new BonusNumber(45));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
 
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.THIRD)).isEqualTo(1);
     }
@@ -73,7 +68,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(1,2,3,4,5,8)), new BonusNumber(6));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
 
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.SECOND)).isEqualTo(1);
     }
@@ -86,7 +80,6 @@ public class LottoResultTest {
         WinningLotto winningLotto = new WinningLotto(new Lotto(List.of(1,2,3,4,5,6)), new BonusNumber(10));
 
         LottoResultCalculator lottoResultCalculator = new LottoResultCalculator(winningLotto, playerLottoes);
-        lottoResultCalculator.calculateWinningRank();
 
         assertThat(lottoResultCalculator.getRankingsResult().get(Ranking.FIRST)).isEqualTo(1);
     }
