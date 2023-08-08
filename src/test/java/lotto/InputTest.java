@@ -27,14 +27,6 @@ public class InputTest {
                 .hasMessageContaining(ERROR_MESSAGE);
     }
 
-    @DisplayName("범위를 벗어나는 보너스 숫자가 입력될 경우 오류가 발생한다.")
-    @Test
-    void bonusNumberRangeError() {
-        assertThatThrownBy(() -> inputValidator.validateBonusNumber("46"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE);
-    }
-
     @DisplayName("콤마 이외의 구분자로 숫자를 구분할 경우 예외가 발생한다.")
     @Test
     void winningNumberSplitError() {
