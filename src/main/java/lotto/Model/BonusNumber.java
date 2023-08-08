@@ -18,7 +18,7 @@ public class BonusNumber {
     }
 
     private void validateCorrectRange(int bonusNumber) {
-        if (bonusNumber < MIN_NUMBER || bonusNumber > MAX_NUMBER) {
+        if (!(MIN_NUMBER <= bonusNumber && bonusNumber <= MAX_NUMBER)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_RANGE;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }

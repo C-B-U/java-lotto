@@ -38,7 +38,7 @@ public class Lotto {
         numbers.forEach(this::isCorrectRange);
     }
     private void isCorrectRange(int number) {
-        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+        if (!(MIN_NUMBER <= number && number <= MAX_NUMBER)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_RANGE;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }

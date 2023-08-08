@@ -3,7 +3,7 @@ package lotto.Model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LottoResult {
+public class LottoResultCalculator {
 
     private final WinningLotto winningLotto;
     private final PlayerLottoes playerLottoes;
@@ -12,7 +12,7 @@ public class LottoResult {
     private static final int PERCENTAGE = 100;
     private static final int THIRD_RANKING_NUMBER = 5;
 
-    public LottoResult(WinningLotto winningLotto, PlayerLottoes playerLottoes) {
+    public LottoResultCalculator(WinningLotto winningLotto, PlayerLottoes playerLottoes) {
         this.winningLotto = winningLotto;
         this.playerLottoes = playerLottoes;
         this.rankings = new HashMap<>();
