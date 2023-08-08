@@ -52,10 +52,9 @@ public class LottoResultCalculator {
     }
 
     private double calculateTotalPrize() {
-        double sum = 0;
-        for(Ranking ranking: lottoResult.keySet()) {
-            sum += ranking.getPrize() * lottoResult.get(ranking);
-        }
-        return sum;
+        return lottoResult.keySet()
+                .stream()
+                .mapToInt((ranking -> ranking.getPrize() * lottoResult.get(ranking)))
+                .sum();
     }
 }
