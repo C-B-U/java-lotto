@@ -8,15 +8,14 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class OutputView {
-
-    private static final int NONE = 1;
+    
     private static final int DEFAULT = 0;
 
     public void printLottoResult(Map<Ranking, Integer> rankingResult) {
         System.out.println(OutputMessage.RESULT_MESSAGE);
         System.out.println(OutputMessage.LINE);
         Arrays.stream(Ranking.values())
-                .skip(NONE)
+                .filter(ranking -> ranking != Ranking.NONE)
                 .forEach(ranking -> printRankingMessage(ranking, rankingResult));
     }
 
