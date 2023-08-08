@@ -1,6 +1,10 @@
 package lotto.view;
 
+import java.util.regex.Pattern;
+
 public class InputValidator {
+
+    String DELIMITER_REGEXP = "(\\d|,)+(\\d)";
 
     public void validateBonusNumber(String bonusNumber) {
         isInteger(bonusNumber);
@@ -24,7 +28,7 @@ public class InputValidator {
     }
 
     private void isContainComma(String userInput) {
-        if (!userInput.contains(",")) {
+        if (!Pattern.matches(DELIMITER_REGEXP, userInput)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.NOT_CONTAIN_COMMA;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }
