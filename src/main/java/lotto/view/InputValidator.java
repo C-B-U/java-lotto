@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
 
     String DELIMITER_REGEXP = "(\\d|,)+(\\d)";
+    String NUMBER_REGEXP = "^\\d*$";
 
     public void validateBonusNumber(String bonusNumber) {
         isInteger(bonusNumber);
@@ -18,10 +19,8 @@ public class InputValidator {
         isContainComma(winningNumbers);
     }
 
-    private void isInteger(String number) {
-        try {
-            Integer.parseInt(number);
-        } catch (NumberFormatException e) {
+    private void isInteger(String userInput) {
+        if (!Pattern.matches(NUMBER_REGEXP, userInput)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.NOT_INTEGER;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }
