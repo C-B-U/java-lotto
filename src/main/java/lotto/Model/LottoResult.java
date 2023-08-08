@@ -10,6 +10,7 @@ public class LottoResult {
     private final Map<Ranking, Integer> rankings;
     private static final int LOTTO_PRICE = 1000;
     private static final int PERCENTAGE = 100;
+    private static final int THIRD_RANKING_NUMBER = 5;
 
     public LottoResult(WinningLotto winningLotto, PlayerLottoes playerLottoes) {
         this.winningLotto = winningLotto;
@@ -19,7 +20,9 @@ public class LottoResult {
 
     public void calculateWinningRank() {
         for (Lotto lotto : playerLottoes.getLottoes()) {
-            Ranking ranking = Ranking.calculate(calculateMatchNumber(lotto), hasBonusNumber(lotto));
+            int matchNumber = calculateMatchNumber(lotto);
+            boolean matchBonusNumber = hasBonusNumber(matchNumber, lotto);
+            Ranking ranking = Ranking.calculate(calculateMatchNumber(lotto), matchBonusNumber);
             rankings.put(ranking, getPlus(ranking));
         }
     }
@@ -32,14 +35,18 @@ public class LottoResult {
                 .count();
     }
 
+    private boolean hasBonusNumber(int matchNumber, Lotto lotto) {
+        if (matchNumber != THIRD_RANKING_NUMBER) {
+            return false;
+        }
+        BonusNumber bonusNumber = winningLotto.getBonusNumber();
+        return lotto.hasNumber(bonusNumber.getBonus());
+    }
+
     private Integer getPlus(Ranking ranking) {
         return rankings.getOrDefault(ranking, 0) + 1;
     }
 
-    private boolean hasBonusNumber(Lotto lotto) {
-        BonusNumber bonusNumber = winningLotto.getBonusNumber();
-        return lotto.hasNumber(bonusNumber.getBonus());
-    }
 
     public Map<Ranking, Integer> getRankingsResult() {
         return rankings;
