@@ -8,9 +8,6 @@ import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
-    private static final int LOTTO_SIZE = 6;
-    private static final int MAX_NUMBER = 45;
-    private static final int MIN_NUMBER = 1;
 
     public Lotto(List<Integer> numbers) {
         validateLottoSize(numbers);
@@ -20,7 +17,7 @@ public class Lotto {
     }
 
     private void validateLottoSize(List<Integer> numbers) {
-        if (numbers.size() != LOTTO_SIZE) {
+        if (numbers.size() != Constant.LOTTO_SIZE.getConstant()) {
             ExceptionMessage message = ExceptionMessage.INCORRECT_LOTTO_SIZE;
             throw new IllegalArgumentException(message.toString());
         }
@@ -28,7 +25,7 @@ public class Lotto {
 
     private void validateDuplicateNumber(List<Integer> numbers) {
         Set<Integer> numberToSet = new HashSet<>(numbers);
-        if (numberToSet.size() != LOTTO_SIZE) {
+        if (numberToSet.size() != Constant.LOTTO_SIZE.getConstant()) {
             ExceptionMessage message = ExceptionMessage.DUPLICATE_NUMBER;
             throw new IllegalArgumentException(message.toString());
         }
@@ -38,7 +35,9 @@ public class Lotto {
         numbers.forEach(this::isCorrectRange);
     }
     private void isCorrectRange(int number) {
-        if (!(MIN_NUMBER <= number && number <= MAX_NUMBER)) {
+        int maxNumber = Constant.MAX_NUMBER.getConstant();
+        int minNumber = Constant.MIN_NUMBER.getConstant();
+        if (!(minNumber <= number && number <= maxNumber)) {
             ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_RANGE;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }

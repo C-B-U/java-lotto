@@ -5,7 +5,6 @@ import lotto.view.ExceptionMessage;
 public class LottoCounter {
 
     private final int lotteryTicket;
-    private static final Integer LOTTO_PRICE = 1000;
 
     public LottoCounter(int payment) {
         validateThousandUnits(payment);
@@ -13,7 +12,7 @@ public class LottoCounter {
     }
 
     public int calculateLotteryTicket(int payment) {
-        return payment / LOTTO_PRICE;
+        return payment / Constant.LOTTO_PRICE.getConstant();
     }
 
     public int getLotteryTicket() {
@@ -21,7 +20,7 @@ public class LottoCounter {
     }
 
     private void validateThousandUnits(Integer amount) {
-        if((amount % LOTTO_PRICE) != 0) {
+        if((amount % Constant.LOTTO_PRICE.getConstant()) != 0) {
             ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_AMOUNT;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }

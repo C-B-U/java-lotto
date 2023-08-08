@@ -5,7 +5,6 @@ public class LottoResultCalculator {
     private final WinningLotto winningLotto;
     private final PlayerLottoes playerLottoes;
     private final LottoResult lottoResult;
-    private static final int LOTTO_PRICE = 1000;
     private static final int PERCENTAGE = 100;
     private static final int THIRD_RANKING_NUMBER = 5;
 
@@ -49,7 +48,7 @@ public class LottoResultCalculator {
     public double calculateYield() {
         double totalPrize = calculateTotalPrize();
         int lotteryTickets = playerLottoes.size();
-        return (totalPrize / (LOTTO_PRICE * lotteryTickets)) * PERCENTAGE;
+        return (totalPrize / (Constant.LOTTO_PRICE.getConstant() * lotteryTickets)) * PERCENTAGE;
     }
 
     private double calculateTotalPrize() {
