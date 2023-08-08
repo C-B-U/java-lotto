@@ -2,15 +2,12 @@ package lotto.view;
 
 public class InputValidator {
 
-    private static final int Thousand = 1000;
-
     public void validateBonusNumber(String bonusNumber) {
         isInteger(bonusNumber);
     }
 
     public void validatePurchaseAmount(String amount) {
         isInteger(amount);
-        isThousandUnits(amount);
     }
 
     public void validateWinningNumbers(String winningNumbers) {
@@ -22,14 +19,6 @@ public class InputValidator {
             Integer.parseInt(number);
         } catch (NumberFormatException e) {
             ExceptionMessage exceptionMessage = ExceptionMessage.NOT_INTEGER;
-            throw new IllegalArgumentException(exceptionMessage.toString());
-        }
-    }
-
-    private void isThousandUnits(String userInput) {
-        int amount = Integer.parseInt(userInput);
-        if((amount % Thousand) != 0) {
-            ExceptionMessage exceptionMessage = ExceptionMessage.INCORRECT_AMOUNT;
             throw new IllegalArgumentException(exceptionMessage.toString());
         }
     }
