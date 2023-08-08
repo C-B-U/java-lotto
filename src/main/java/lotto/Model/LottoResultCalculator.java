@@ -1,13 +1,10 @@
 package lotto.Model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class LottoResultCalculator {
 
     private final WinningLotto winningLotto;
     private final PlayerLottoes playerLottoes;
-    private final Map<Ranking, Integer> rankings;
+    private final LottoResult lottoResult;
     private static final int LOTTO_PRICE = 1000;
     private static final int PERCENTAGE = 100;
     private static final int THIRD_RANKING_NUMBER = 5;
@@ -15,7 +12,7 @@ public class LottoResultCalculator {
     public LottoResultCalculator(WinningLotto winningLotto, PlayerLottoes playerLottoes) {
         this.winningLotto = winningLotto;
         this.playerLottoes = playerLottoes;
-        this.rankings = new HashMap<>();
+        this.lottoResult = new LottoResult();
     }
 
     public void calculateWinningRank() {
@@ -23,7 +20,7 @@ public class LottoResultCalculator {
             int matchNumber = calculateMatchNumber(lotto);
             boolean matchBonusNumber = hasBonusNumber(matchNumber, lotto);
             Ranking ranking = Ranking.calculate(calculateMatchNumber(lotto), matchBonusNumber);
-            rankings.put(ranking, getPlus(ranking));
+            lottoResult.putResult(ranking);
         }
     }
 
@@ -43,13 +40,8 @@ public class LottoResultCalculator {
         return lotto.hasNumber(bonusNumber.getBonus());
     }
 
-    private Integer getPlus(Ranking ranking) {
-        return rankings.getOrDefault(ranking, 0) + 1;
-    }
-
-
-    public Map<Ranking, Integer> getRankingsResult() {
-        return rankings;
+    public LottoResult getRankingsResult() {
+        return lottoResult;
     }
 
     public double calculateYield() {
@@ -60,8 +52,8 @@ public class LottoResultCalculator {
 
     private double calculateTotalPrize() {
         double sum = 0;
-        for(Ranking ranking: rankings.keySet()) {
-            sum += ranking.getPrize() * rankings.get(ranking);
+        for(Ranking ranking: lottoResult.keyset()) {
+            sum += ranking.getPrize() * lottoResult.get(ranking);
         }
         return sum;
     }
