@@ -1,7 +1,5 @@
 package lotto.model;
 
-import java.util.Arrays;
-
 public enum Ranking {
     NONE(0, 0, false),
     FIFTH(5_000, 3, false),
@@ -12,20 +10,12 @@ public enum Ranking {
 
     private final int prize;
     private final int matchNumber;
-    private final boolean isMatchBonus;
+    private final boolean bonusMatch;
 
-    Ranking(int prize, int matchNumber, boolean isMatchBonus) {
+    Ranking(int prize, int matchNumber, boolean bonusMatch) {
         this.prize = prize;
         this.matchNumber = matchNumber;
-        this.isMatchBonus = isMatchBonus;
-    }
-
-    public static Ranking calculate(int matchNumber, boolean isMatchBonus) {
-        return Arrays.stream(values())
-                .filter(ranking -> ranking.matchNumber == matchNumber)
-                .filter(ranking -> ranking.isMatchBonus == isMatchBonus)
-                .findAny()
-                .orElse(NONE);
+        this.bonusMatch = bonusMatch;
     }
 
     public int getPrize() {
@@ -34,5 +24,9 @@ public enum Ranking {
 
     public int getMatchNumber() {
         return matchNumber;
+    }
+
+    public boolean getBonusMatch() {
+        return bonusMatch;
     }
 }

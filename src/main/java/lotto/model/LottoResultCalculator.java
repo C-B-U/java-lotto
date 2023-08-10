@@ -1,5 +1,7 @@
 package lotto.model;
 
+import java.util.Arrays;
+
 public class LottoResultCalculator {
 
     private final WinningLotto winningLotto;
@@ -19,10 +21,18 @@ public class LottoResultCalculator {
         for (Lotto lotto : playerLottoes.getLottoes()) {
             int matchNumber = calculateMatchNumber(lotto);
             boolean matchBonusNumber = hasBonusNumber(matchNumber, lotto);
-            Ranking ranking = Ranking.calculate(calculateMatchNumber(lotto), matchBonusNumber);
+            Ranking ranking = calculateRanking(matchNumber, matchBonusNumber);
             result.putResult(ranking);
         }
         return result;
+    }
+
+    private static Ranking calculateRanking(int matchNumber, boolean isMatchBonus) {
+        return Arrays.stream(Ranking.values())
+                .filter(ranking -> ranking.getMatchNumber() == matchNumber)
+                .filter(ranking -> ranking.getBonusMatch() == isMatchBonus)
+                .findAny()
+                .orElse(Ranking.NONE);
     }
 
     private Integer calculateMatchNumber(Lotto lotto) {
