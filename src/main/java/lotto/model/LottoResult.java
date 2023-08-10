@@ -27,7 +27,42 @@ public class LottoResult {
         return result.get(ranking);
     }
 
-    public Map<Ranking, Integer> getResult() {
-        return result;
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        Arrays.stream(Ranking.values())
+                .filter(ranking -> ranking != Ranking.NONE)
+                .forEach(ranking -> {
+                    appendMatchNumberMessage(ranking, stringBuilder);
+                    appendBonusMessage(ranking, stringBuilder);
+                    appendPrizeAmountMessage(ranking, stringBuilder);
+                    appendWinningNumberMessage(ranking, stringBuilder);
+                    stringBuilder.append(ResultMessage.NEW_LINE);
+                });
+        return stringBuilder.toString();
+    }
+
+    private void appendMatchNumberMessage(Ranking ranking, StringBuilder stringBuilder) {
+        ResultMessage resultMessage = ResultMessage.MATCH_NUMBER_MESSAGE;
+        int matchNumber = ranking.getMatchNumber();
+        stringBuilder.append(String.format(resultMessage.toString(), matchNumber));
+    }
+
+    private void appendPrizeAmountMessage(Ranking ranking, StringBuilder stringBuilder) {
+        ResultMessage resultMessage = ResultMessage.AMOUNT_MESSAGE;
+        int prize = ranking.getPrize();
+        stringBuilder.append(String.format(resultMessage.toString(), prize));
+    }
+
+    private void appendBonusMessage(Ranking ranking, StringBuilder stringBuilder) {
+        if (ranking == Ranking.SECOND) {
+            stringBuilder.append(ResultMessage.BONUS_MESSAGE);
+        }
+    }
+
+    private void appendWinningNumberMessage(Ranking ranking, StringBuilder stringBuilder) {
+        ResultMessage resultMessage = ResultMessage.WINNING_NUMBER_MESSAGE;
+        int winningNumber = result.get(ranking);
+        stringBuilder.append(String.format(resultMessage.toString(), winningNumber));
     }
 }

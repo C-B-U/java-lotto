@@ -3,9 +3,6 @@ package lotto.view;
 import lotto.model.Lotto;
 import lotto.model.LottoResult;
 import lotto.model.PlayerLottoes;
-import lotto.model.Ranking;
-
-import java.util.Arrays;
 
 public class OutputView {
 
@@ -24,13 +21,7 @@ public class OutputView {
     public void printLottoResult(LottoResult rankingResult) {
         System.out.println(OutputMessage.RESULT_MESSAGE);
         System.out.println(OutputMessage.LINE);
-        Arrays.stream(Ranking.values())
-                .filter(ranking -> ranking != Ranking.NONE)
-                .forEach(ranking -> printRankingMessage(ranking, rankingResult));
-    }
-
-    private void printRankingMessage(Ranking ranking, LottoResult rankingResult) {
-        System.out.println(ranking.getMessage(rankingResult.get(ranking)));
+        System.out.println(rankingResult.toString());
     }
 
     public void printPurchaseCount(int lottoTicketsNumber) {
