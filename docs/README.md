@@ -21,12 +21,36 @@
 - [ ] 수익률 출력
   - [ ] 소수점 둘째 자리에서 반올림
 
+
+
 ## Application
 - [ ] 로또 프로그램 작동
 
-## Lotto
+### controller
+## InputController
+- [ ] 구입 금액 입력
+- [ ] 당첨 번호 입력
+- [ ] 보너스 번호 입력
+
+
+### service
+## LottoService
 - [ ] 구입 금액에 따른 로또 개수 계산
-- [ ] 로또 개수만큼의 로또 번호 생성
+- [ ] 로또 개수만큼 LottoNumberGenerator 호출
+
+### repository
+## LottoNumberGenerator
+- [ ] 로또 번호 생성
+
+## Lotto
+- [ ] (예외처리) 숫자 6개 확인
+- [ ] (예외처리) 숫자 중복 없음 확인
+- [ ] (예외처리) 숫자 범위 1~45 확인
+
+## BonusLotto
+- [ ] (예외처리) 숫자 범위 1~45 확인
+
+
 
 ## Outcome
 - [ ] 일치 개수 계산
@@ -35,3 +59,5 @@
 ## PrizeMoney
 - [ ] 당청금 계산
 - [ ] 수익률 계산
+
+
