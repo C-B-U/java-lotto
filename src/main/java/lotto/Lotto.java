@@ -11,10 +11,26 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
+        checkSixNumbers(numbers);
+        checkNotDuplicated(numbers);
+        checkInRange(numbers);
+    }
+
+    private void checkSixNumbers(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.NOT_SIX_NUMBERS.toString());
         }
     }
 
-    // TODO: 추가 기능 구현
+     private void checkNotDuplicated(List<Integer> numbers) {
+         if (numbers.size() != numbers.stream().distinct().count()) {
+             throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NUMBERS.toString());
+         }
+     }
+
+    private void checkInRange(List<Integer> numbers) {
+        if (!numbers.stream().allMatch(n -> n <= 45 && n >= 1)) {
+            throw new IllegalArgumentException(ErrorMessage.OUT_OF_RANGE_NUMBER.toString());
+        }
+    }
 }
