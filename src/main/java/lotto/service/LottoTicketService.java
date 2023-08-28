@@ -29,6 +29,16 @@ public class LottoTicketService {
         }
     }
 
+    private int getTicketNum(int money) {
+        int ticketNum = money / MONEY_UNIT;
+        printTicketNum(ticketNum);
+        return ticketNum;
+    }
+
+    private void printTicketNum(int num) {
+        System.out.println(num + OutputGuide.NUMBER_OF_PURCHASE.getContent());
+    }
+
     private void printTickets() {
         ticketGenerator.getSortedTickets().forEach(t ->
                 System.out.println(Arrays.toString(t.stream().sorted().toArray())));
