@@ -29,4 +29,8 @@ public class BonusLotto {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NUMBERS.getMessage());
         }
     }
+
+    public int getNumber() {
+        return number;
+    }
 }
