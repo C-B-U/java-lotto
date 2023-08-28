@@ -28,4 +28,7 @@ public class LottoTicketGenerator {
         return tickets;
     }
 
+    public List<List<Integer>> getTickets() {
+        return tickets;
+    }
 }

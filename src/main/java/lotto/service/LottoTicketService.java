@@ -4,6 +4,7 @@ import lotto.ErrorMessage;
 import lotto.repositroy.LottoTicketGenerator;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class LottoTicketService {
     private static final int ZERO = 0;
@@ -14,11 +15,12 @@ public class LottoTicketService {
         this.ticketGenerator = new LottoTicketGenerator();
     }
 
-    public void createLottoTickets(int money) {
+    public List<List<Integer>> createLottoTickets(int money) {
         validate(money);
-        int ticketNum = money / MONEY_UNIT;
-        ticketGenerator.generateTicket(ticketNum);
+        ticketGenerator.generateTicket(getTicketNum(money));
         printTickets();
+
+        return ticketGenerator.getTickets();
     }
 
     private void validate(int money) {
