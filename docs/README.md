@@ -24,40 +24,54 @@
 
 
 ## Application
-- [ ] 로또 프로그램 작동
+- [x] 로또 프로그램 작동
+
 
 ### controller
-## InputController
+## PlayController
 - [ ] 구입 금액 입력
 - [ ] 당첨 번호 입력
-- [ ] 보너스 번호 입력
+- [ ] 보너스 번호 
+
 
 
 ### service
-## LottoService
+## PlayLottoService
+- [x] 로또 번호 6개 & 보너스 번호 -> 하나의 DTO로 병합
+- [x] 로또 추첨 로직 실행
+
+## LottoTicketService
 - [ ] 구입 금액에 따른 로또 개수 계산
 - [ ] 로또 개수만큼 LottoNumberGenerator 호출
 
-### repository
-## LottoNumberGenerator
-- [ ] 로또 번호 생성
-
-## Lotto
-- [ ] (예외처리) 숫자 6개 확인
-- [ ] (예외처리) 숫자 중복 없음 확인
-- [ ] (예외처리) 숫자 범위 1~45 확인
-
-## BonusLotto
-- [ ] (예외처리) 숫자 범위 1~45 확인
-
-
-
-## Outcome
+## OutcomeService
 - [ ] 일치 개수 계산
 - [ ] 3개 이상 일치한 로또 필터링
 
-## PrizeMoney
+## PrizeMoneyService
 - [ ] 당청금 계산
 - [ ] 수익률 계산
+
+
+
+### repository
+## LottoNumberGenerator
+- [x] 로또 번호 생성
+
+## Lotto
+- [x] (예외처리) 숫자 6개 확인
+- [x] (예외처리) 숫자 중복 없음 확인
+- [x] (예외처리) 숫자 범위 1~45 확인
+
+## BonusLotto
+- [x] (예외처리) 숫자 범위 1~45 확인
+- [x] (예외처리) 기존 6개 당첨 번호와 중복 없음 확인
+
+## InputProcessor
+- [x] 로또 구입 금액 & 보너스 번호 정수 변환
+- [x] 당첨 번호 6개 정수 리스트 변환
+
+
+
 
 
