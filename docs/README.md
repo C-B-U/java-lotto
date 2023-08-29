@@ -37,14 +37,21 @@
 - [x] 보너스 번호
 
 
+### dto
+- [x] 로또 번호 6개 & 보너스 번호
+
+
 ### service
 ## PlayLottoService
 - [x] 로또 번호 6개 & 보너스 번호 -> 하나의 DTO로 병합
 - [x] 로또 추첨 로직 실행
 
 ## LottoTicketService
-- [ ] 구입 금액에 따른 로또 개수 계산
-- [ ] 로또 개수만큼 LottoNumberGenerator 호출
+- [x] 구입 금액에 따른 로또 개수 계산
+  - [x] 구입 금액 1000원 단위 검증
+- [x] 로또 구입 개수 출력
+- [x] 로또 개수만큼 LottoNumberGenerator 호출
+- [x] 로또 티켓 번호 출력
 
 ## OutcomeService
 - [ ] 일치 개수 계산
@@ -73,7 +80,9 @@
 - [x] 로또 구입 금액 & 보너스 번호 정수 변환
 - [x] 당첨 번호 6개 정수 리스트 변환
 
-
+## PrizeResult
+- [x] 일치 개수 별 상금
+- [x] 일치 개수 별 당첨 로또 개수
 
 
 
