@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputProcessor {
-    private static final String CRITERIA = ", ";
+    private static final String CRITERIA = ",";
 
     public int changeToInt(String money) {
         try {
