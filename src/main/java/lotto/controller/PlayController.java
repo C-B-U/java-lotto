@@ -18,7 +18,6 @@ public class PlayController {
         this.answerController = new LottoAnswerController();
     }
 
-
     public void start() {
         int money = inputMoney();
         List<List<Integer>> tickets = ticketService.createLottoTickets(money);
@@ -27,10 +26,6 @@ public class PlayController {
 
     private int inputMoney() {
         System.out.println(InputGuide.INPUT_MONEY.getContent());
-        int money = inputProcessor.changeToInt(Console.readLine());
-
-        return money;
+        return inputProcessor.changeToInt(Console.readLine());
     }
-
-
 }

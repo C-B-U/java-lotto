@@ -3,8 +3,7 @@ package lotto;
 public enum LottoRangeNumber {
     MIN_LOTTO_NUM(1),
     MAX_LOTTO_NUM(45),
-    NUM_OF_LOTTO_NUMS(6)
-    ;
+    NUM_OF_LOTTO_NUMS(6);
 
 
     private int num;
