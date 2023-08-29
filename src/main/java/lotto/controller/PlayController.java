@@ -22,7 +22,7 @@ public class PlayController {
     public void start() {
         int money = inputMoney();
         List<List<Integer>> tickets = ticketService.createLottoTickets(money);
-        answerController.playLotto(tickets);
+        answerController.playLotto(tickets, money);
     }
 
     private int inputMoney() {

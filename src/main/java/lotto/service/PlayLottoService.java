@@ -1,15 +1,14 @@
 package lotto.service;
 
 
-import lotto.PrizeResult;
 import lotto.dto.AllLottoes;
 import lotto.repositroy.BonusLotto;
 import lotto.repositroy.Lotto;
 
 import java.util.List;
-import java.util.Map;
 
 public class PlayLottoService {
+    private static final int HUNDRED = 100;
     private final OutcomeService outcomeService;
 
     public PlayLottoService() {
@@ -22,7 +21,13 @@ public class PlayLottoService {
         return new AllLottoes(lotto, bonusLotto);
     }
 
-    public void playLotto(AllLottoes allLottoes, List<List<Integer>> tickets) {
-        long totalMoney = outcomeService.getTotalPrizeMoney(allLottoes, tickets);
+    public long playLotto(AllLottoes allLottoes, List<List<Integer>> tickets) {
+        return outcomeService.getTotalPrizeMoney(allLottoes, tickets);
+    }
+
+    public void printEarningRate(double earningRate) {
+        String earningPercent = String.format("%.1f", earningRate * HUNDRED);
+        System.out.println(OutputGuide.TOTAL_EARNING_FRONT.getContent() + earningPercent
+                + OutputGuide.TOTAL_EARNING_BACK.getContent());
     }
 }
