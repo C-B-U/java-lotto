@@ -20,12 +20,14 @@ public class BonusLotto {
 
     private void checkInRage(int number) {
         if (number > LottoRangeNumber.MAX_LOTTO_NUM.getNum() || number < LottoRangeNumber.MIN_LOTTO_NUM.getNum()) {
+            ErrorMessage.OUT_OF_RANGE_NUMBER.print();
             throw new IllegalArgumentException(ErrorMessage.OUT_OF_RANGE_NUMBER.getMessage());
         }
     }
 
     private void checkNotDuplicated(int number, List<Integer> winNumbers) {
         if (winNumbers.contains(number)) {
+            ErrorMessage.DUPLICATED_NUMBERS.print();
             throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NUMBERS.getMessage());
         }
     }

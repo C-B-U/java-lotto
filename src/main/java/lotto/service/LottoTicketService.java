@@ -25,6 +25,7 @@ public class LottoTicketService {
 
     private void validate(int money) {
         if (money % MONEY_UNIT != ZERO) {
+            ErrorMessage.INVALID_OF_MONEY_UNIT.print();
             throw new IllegalArgumentException(ErrorMessage.INVALID_OF_MONEY_UNIT.getMessage());
         }
     }
