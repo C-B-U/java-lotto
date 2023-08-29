@@ -1,19 +1,19 @@
 package lotto;
 
 public enum PrizeMoney {
-    THREE_EQUAL_MONEY(5_000),
-    FOUR_EQUAL_MONEY(50_000),
-    FIVE_EQUAL_MONEY(1_500_000),
-    BONUS_EQUAL_MONEY(30_000_000),
-    SIX_EQUAL_MONEY(2_000_000_000);
+    THREE_EQUAL_MONEY(5_000L),
+    FOUR_EQUAL_MONEY(50_000L),
+    FIVE_EQUAL_MONEY(1_500_000L),
+    BONUS_EQUAL_MONEY(30_000_000L),
+    SIX_EQUAL_MONEY(2_000_000_000L);
 
-    private final int number;
+    private final long number;
 
-    PrizeMoney(final int number) {
+    PrizeMoney(final long number) {
         this.number = number;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 
