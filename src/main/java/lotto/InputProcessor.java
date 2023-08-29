@@ -2,6 +2,7 @@ package lotto;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class InputProcessor {
@@ -11,7 +12,8 @@ public class InputProcessor {
         try {
             return Integer.parseInt(money);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_NUMBER.getMessage());
+            ErrorMessage.NOT_NUMBER.print();
+            throw new NoSuchElementException(ErrorMessage.NOT_NUMBER.getMessage());
         }
     }
 
