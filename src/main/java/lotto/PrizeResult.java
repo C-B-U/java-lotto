@@ -17,7 +17,7 @@ public class PrizeResult {
     }
 
     private void initializePlayResult() {
-        Arrays.stream(MatchNum.values()).distinct().forEach(m -> playResult.put(m, ZERO));
+        Arrays.stream(MatchNum.values()).forEach(m -> playResult.put(m, ZERO));
     }
 
     private void initializePrizeMoneyMap() {
@@ -30,7 +30,9 @@ public class PrizeResult {
     public void makeResult(AllLottoes allLottoes, List<List<Integer>> tickets) {
         for (List<Integer> ticket : tickets) {
             MatchNum match = checkTicket(ticket, allLottoes);
-            playResult.put(match, playResult.get(match) + 1);
+            if (match != null) {
+                playResult.put(match, playResult.get(match) + 1);
+            }
         }
     }
 
@@ -39,7 +41,7 @@ public class PrizeResult {
         if (count == MatchNum.FIVE_MATCH.getNum()) {
             return checkBonusLotto(ticket, allLottoes.getBonusLotto());
         }
-        return MatchNum.valueOf(count);
+        return MatchNum.getOf(count);
     }
 
     private MatchNum checkBonusLotto(List<Integer> ticket, BonusLotto bonusLotto) {
