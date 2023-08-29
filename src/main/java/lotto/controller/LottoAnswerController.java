@@ -16,20 +16,21 @@ public class LottoAnswerController {
         this.playLottoService = new PlayLottoService();
     }
 
-    public void playLotto(List<List<Integer>> tickets) {
+    public void playLotto(List<List<Integer>> tickets, double paidMoney) {
         List<Integer> lottoAnswers = inputAnswerNumber();
         int bonusAnswer = intputBonusNumber();
         AllLottoes allLottoes = playLottoService.setAllLottoes(lottoAnswers, bonusAnswer);
-        playLottoService.playLotto(allLottoes, tickets);
+        long totalPrizeMoney = playLottoService.playLotto(allLottoes, tickets);
+        playLottoService.printEarningRate(totalPrizeMoney / paidMoney);
     }
 
     private List<Integer> inputAnswerNumber() {
-        System.out.println(InputGuide.INPUT_LOTTO_ANSWER);
+        System.out.println(InputGuide.INPUT_LOTTO_ANSWER.getContent());
         return inputProcessor.changeToIntegerList(Console.readLine());
     }
 
     private int intputBonusNumber() {
-        System.out.println(InputGuide.INPUT_BONUS_ANSWER);
+        System.out.println(InputGuide.INPUT_BONUS_ANSWER.getContent());
         return inputProcessor.changeToInt(Console.readLine());
     }
 
