@@ -4,11 +4,14 @@ import lotto.PrizeMoney;
 import lotto.PrizeResult;
 import lotto.dto.AllLottoes;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class OutcomeService {
+    DecimalFormat formatter = new DecimalFormat("#,###");
+
     private final PrizeResult prizeResult;
 
     public OutcomeService() {
@@ -27,8 +30,8 @@ public class OutcomeService {
     private void printResult() {
         Map<MatchNum, PrizeMoney> prizeMoneyMap = prizeResult.getPrizeMoneyMap();
         Map<MatchNum, Integer> playResult = prizeResult.getPlayResult();
-
-        Arrays.stream(MatchNum.values()).distinct().forEach(m -> {
+        System.out.println(OutputGuide.RESULT_STATISTICS.getContent());
+        Arrays.stream(MatchNum.values()).forEach(m -> {
             printEqualNum(m);
             printPrizeMoney(prizeMoneyMap.get(m));
             printLottoNumResult(playResult.get(m));
@@ -37,11 +40,16 @@ public class OutcomeService {
 
 
     private void printEqualNum(MatchNum matchNum) {
-        System.out.print(matchNum + OutputGuide.EQUAL_NUM_GUIDE.getContent());
+        if (matchNum.equals(MatchNum.BONUS_MATCH)) {
+            System.out.print(OutputGuide.BONUS_NUM_GUIDE.getContent());
+            return;
+        }
+        System.out.print(matchNum.getNum() + OutputGuide.EQUAL_NUM_GUIDE.getContent());
     }
 
     private void printPrizeMoney(PrizeMoney prizeMoney) {
-        System.out.print(prizeMoney.getNumber() + OutputGuide.PRIZE_MONEY_GUIDE.getContent());
+        String formatMoney = formatter.format(prizeMoney.getNumber());
+        System.out.print(formatMoney + OutputGuide.PRIZE_MONEY_GUIDE.getContent());
     }
 
 

@@ -18,7 +18,7 @@ public enum MatchNum {
         return num;
     }
 
-    public static MatchNum valueOf(int check) {
+    public static MatchNum getOf(int check) {
         for (MatchNum matchNum : MatchNum.values()) {
             if (check == matchNum.getNum()) {
                 return matchNum;
