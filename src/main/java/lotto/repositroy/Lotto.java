@@ -1,7 +1,6 @@
 package lotto.repositroy;
 
 import lotto.ErrorMessage;
-import lotto.LottoRangeNumber;
 
 import java.util.List;
 
