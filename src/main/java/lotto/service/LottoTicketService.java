@@ -1,6 +1,7 @@
 package lotto.service;
 
 import lotto.ErrorMessage;
+import lotto.repositroy.LottoTicket;
 import lotto.repositroy.LottoTicketGenerator;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ public class LottoTicketService {
         this.ticketGenerator = new LottoTicketGenerator();
     }
 
-    public List<List<Integer>> createLottoTickets(int money) {
+    public List<LottoTicket> createLottoTickets(int money) {
         validate(money);
         ticketGenerator.generateTicket(getTicketNum(money));
         printTickets();

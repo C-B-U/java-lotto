@@ -1,8 +1,8 @@
 package lotto.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.InputProcessor;
 import lotto.dto.AllLottoes;
+import lotto.repositroy.LottoTicket;
 import lotto.service.PlayLottoService;
 
 import java.util.List;
@@ -16,11 +16,13 @@ public class LottoAnswerController {
         this.playLottoService = new PlayLottoService();
     }
 
-    public void playLotto(List<List<Integer>> tickets, double paidMoney) {
+    public void playLotto(List<LottoTicket> tickets, double paidMoney) {
         List<Integer> lottoAnswers = inputAnswerNumber();
         int bonusAnswer = intputBonusNumber();
-        AllLottoes allLottoes = playLottoService.setAllLottoes(lottoAnswers, bonusAnswer);
+
+        AllLottoes allLottoes = playLottoService.getAllLottoes(lottoAnswers, bonusAnswer);
         long totalPrizeMoney = playLottoService.playLotto(allLottoes, tickets);
+
         playLottoService.printEarningRate(totalPrizeMoney / paidMoney);
     }
 

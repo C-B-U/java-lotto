@@ -2,6 +2,7 @@ package lotto;
 
 import lotto.dto.AllLottoes;
 import lotto.repositroy.BonusLotto;
+import lotto.repositroy.LottoTicket;
 import lotto.service.MatchNum;
 
 import java.util.*;
@@ -27,9 +28,9 @@ public class PrizeResult {
         }
     }
 
-    public void makeResult(AllLottoes allLottoes, List<List<Integer>> tickets) {
-        for (List<Integer> ticket : tickets) {
-            MatchNum match = checkTicket(ticket, allLottoes);
+    public void makeResult(AllLottoes allLottoes, List<LottoTicket> tickets) {
+        for (LottoTicket ticket : tickets) {
+            MatchNum match = checkTicket(ticket.toList(), allLottoes);
             if (match != null) {
                 playResult.put(match, playResult.get(match) + 1);
             }

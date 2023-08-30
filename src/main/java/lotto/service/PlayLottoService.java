@@ -4,6 +4,7 @@ package lotto.service;
 import lotto.dto.AllLottoes;
 import lotto.repositroy.BonusLotto;
 import lotto.repositroy.Lotto;
+import lotto.repositroy.LottoTicket;
 
 import java.util.List;
 
@@ -15,13 +16,13 @@ public class PlayLottoService {
         this.outcomeService = new OutcomeService();
     }
 
-    public AllLottoes setAllLottoes(List<Integer> lottoAnswers, int bonusAnswer) {
+    public AllLottoes getAllLottoes(List<Integer> lottoAnswers, int bonusAnswer) {
         Lotto lotto = new Lotto(lottoAnswers);
         BonusLotto bonusLotto = new BonusLotto(bonusAnswer, lotto.getNumbers());
         return new AllLottoes(lotto, bonusLotto);
     }
 
-    public long playLotto(AllLottoes allLottoes, List<List<Integer>> tickets) {
+    public long playLotto(AllLottoes allLottoes, List<LottoTicket> tickets) {
         return outcomeService.getTotalPrizeMoney(allLottoes, tickets);
     }
 

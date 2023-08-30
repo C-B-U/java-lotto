@@ -1,9 +1,8 @@
 package lotto.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.InputProcessor;
+import lotto.repositroy.LottoTicket;
 import lotto.service.LottoTicketService;
-import lotto.service.OutputGuide;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class PlayController {
 
     public void start() {
         int money = inputMoney();
-        List<List<Integer>> tickets = ticketService.createLottoTickets(money);
+        List<LottoTicket> tickets = ticketService.createLottoTickets(money);
         answerController.playLotto(tickets, money);
     }
 

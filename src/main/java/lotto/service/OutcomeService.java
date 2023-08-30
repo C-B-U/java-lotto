@@ -3,6 +3,7 @@ package lotto.service;
 import lotto.PrizeMoney;
 import lotto.PrizeResult;
 import lotto.dto.AllLottoes;
+import lotto.repositroy.LottoTicket;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class OutcomeService {
         this.prizeResult = new PrizeResult();
     }
 
-    public long getTotalPrizeMoney(final AllLottoes allLottoes, final List<List<Integer>> tickets) {
+    public long getTotalPrizeMoney(final AllLottoes allLottoes, final List<LottoTicket> tickets) {
         prizeResult.initialize();
         prizeResult.makeResult(allLottoes, tickets);
         printResult();

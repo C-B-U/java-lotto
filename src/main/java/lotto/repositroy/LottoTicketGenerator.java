@@ -1,13 +1,13 @@
 package lotto.repositroy;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import lotto.LottoRangeNumber;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LottoTicketGenerator {
-    private final List<List<Integer>> tickets;
+    private final List<LottoTicket> tickets;
 
     public LottoTicketGenerator() {
         tickets = new ArrayList<>();
@@ -15,20 +15,15 @@ public class LottoTicketGenerator {
 
     public void generateTicket(int ticketNum) {
         for (int i = 0; i < ticketNum; i++) {
-            tickets.add(generateNumber());
+            tickets.add(new LottoTicket());
         }
     }
 
-    private List<Integer> generateNumber() {
-        return Randoms.pickUniqueNumbersInRange(LottoRangeNumber.MIN_LOTTO_NUM.getNum()
-                , LottoRangeNumber.MAX_LOTTO_NUM.getNum(), LottoRangeNumber.NUM_OF_LOTTO_NUMS.getNum());
-    }
-
     public List<List<Integer>> getSortedTickets() {
-        return tickets;
+        return tickets.stream().map(LottoTicket::getSorted).collect(Collectors.toList());
     }
 
-    public List<List<Integer>> getTickets() {
+    public List<LottoTicket> getTickets() {
         return tickets;
     }
 }
